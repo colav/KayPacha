@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+import argparse
+import importlib
+from ukupacha.Graph import UkuPachaGraph
+from ukupacha.Utils import replace_graph_db_field
+
+parser = argparse.ArgumentParser(description='Oracle to MongoDB')
+parser.add_argument('--max_threads', type=int, default=2,
+                    help='an integer for number of threads, max threads 2')
+parser.add_argument('--ora_sysuser', type=str,
+                    default="system", help='Oracle System user')
+parser.add_argument('--ora_syspass', type=str,
+                    default="colavudea", help='Oracle System user password')
+parser.add_argument('--ora_dburi', type=str, default="localhost:1521",
+                    help='Oracle System db url default(localhost:1521)')
+parser.add_argument('--model', required=True, type=str,
+                    help='ukupacha data model ex: 2018')
+parser.add_argument('--cvlac_user', type=str,
+                    default='UDEA_CV', help='user for CVLAC')
+parser.add_argument('--gruplac_user', type=str,
+                    default='UDEA_GR', help='user for GRUPLAC')
+parser.add_argument('--institulac_user', type=str,
+                    default='UDEA_IN', help='user for INSTITULAC')
+parser.add_argument('--mongo_dburi', type=str,
+                    default='mongodb://localhost:27017/', help='uri for MongoDb database')
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+    ora_graph = UkuPachaGraph(user=args.ora_sysuser,
+                              password=args.ora_syspass, dburi=args.ora_dburi)
+
+    model = args.model
+    graph_schema = importlib.import_module(
+        f'kaypacha.models.scienti.{model}.graph_schema').graph_schema
+    graph_fields = importlib.import_module(
+        f'kaypacha.models.scienti.{model}.graph_fields').graph_fields
+
+    graph_schema = replace_graph_db_field(
+        graph_schema, "__CVLAC__", args.cvlac_user)
+    graph_schema = replace_graph_db_field(
+        graph_schema, "__GRUPLAC__", args.gruplac_user)
+    graph_schema = replace_graph_db_field(
+        graph_schema, "__INSTITULAC__", args.institulac_user)
+    max_threads = args.max_threads
+
+    if max_threads > 2:
+        print("max_threads can't be greater than 2 (https://www.oracle.com/database/technologies/appdev/xe.html)")
+        print("setting max_threads=2")
+        max_threads = 2
+
+    for model in graph_schema["MODELS"]:
+        main_table = model["MAIN_TABLE"]
+        graph = model["GRAPH"]
+
+        query = f"select * from {args.cvlac_user}.{main_table}"
+        data = ora_graph.utils.request(query)
+        print(f"Processing database with {data.shape[0]} registers.")
+        # ora_graph.run2file("scienti.json",data,graph_base,graph_fields)
+        ora_graph.run2mongodb(data, model, graph_fields,
+                              f"scienti_{args.model}", args.mongo_dburi, max_threads)
