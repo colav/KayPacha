@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
         query = f"select * from {args.cvlac_user}.{main_table}"
         data = ora_graph.utils.request(query)
-        print(f"Processing database with {data.shape[0]} registers.")
+        print(f"Processing database for model {main_table} with {data.shape[0]} registers.")
         # ora_graph.run2file("scienti.json",data,graph_base,graph_fields)
-        ora_graph.run2mongodb(data, model, graph_fields,
+        ora_graph.run2mongodb(data, model, graph_fields[main_table],
                               f"scienti_{args.model}", args.mongo_dburi, max_threads)
