@@ -40,7 +40,7 @@ product_fields["EN_PROYECTO_GR"]["fields"] = {
 product_fields["EN_PRODUCTO_GR"] = {"alias": "", }
 product_fields["EN_PRODUCTO_GR"]["fields"] = {}
 
-product_fields["EN_TIPO_PRODUCTO"] = {"alias": "producto_type"}
+product_fields["EN_TIPO_PRODUCTO"] = {"alias": "product_type"}
 product_fields["EN_TIPO_PRODUCTO"]["fields"] = {
 }
 
@@ -170,11 +170,17 @@ network_fields["EN_RED"]["fields"] = {
 network_fields["EN_INSTITUCION"] = {"alias": "institution"}
 network_fields["EN_INSTITUCION"]["fields"] = {
 }
-
-network_fields["RE_INSTITUCION_RED"] = {"alias": "institution_others"}
-network_fields["RE_INSTITUCION_RED"]["fields"] = {
+network_fields["EN_INSTITUCION_OTRA"] = {"alias": "institution_other"}
+network_fields["EN_INSTITUCION_OTRA"]["fields"] = {
 }
 
+#network_fields["RE_INSTITUCION_RED"] = {"alias": "institution_others"}
+# network_fields["RE_INSTITUCION_RED"]["fields"] = {
+# }
+
+network_fields["EN_RECURSO_HUMANO"] = {"alias": "author"}
+network_fields["EN_RECURSO_HUMANO"]["fields"] = {
+}
 
 network_fields["EN_RECURSO_HUMANO_OTRO"] = {"alias": "author_others"}
 network_fields["EN_RECURSO_HUMANO_OTRO"]["fields"] = {

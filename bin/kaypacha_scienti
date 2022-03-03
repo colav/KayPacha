@@ -3,6 +3,7 @@ import argparse
 import importlib
 from ukupacha.Graph import UkuPachaGraph
 from ukupacha.Utils import replace_graph_db_field
+from kaypacha.filters.scienti_filter import scienti_filter
 
 parser = argparse.ArgumentParser(description='Oracle to MongoDB')
 parser.add_argument('--max_threads', type=int, default=2,
@@ -57,4 +58,4 @@ if __name__ == '__main__':
         print(f"Processing database for model {main_table} with {data.shape[0]} registers.")
         # ora_graph.run2file("scienti.json",data,graph_base,graph_fields)
         ora_graph.run2mongodb(data, model, graph_fields[main_table],
-                              f"scienti_{args.model}", args.mongo_dburi, max_threads)
+                              f"scienti_{args.model}", args.mongo_dburi, max_threads,scienti_filter)

@@ -263,6 +263,10 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
 graph_red = {"MAIN_TABLE": "EN_RED",
              "SCHEMA_VERSION": 0.1,
              "GRAPH": [{"EN_RED": [
+                 # autor registrante
+                 {"KEYS": ["COD_RH"],
+                  "DB":"__CVLAC__",
+                  "TABLES":[{'EN_RECURSO_HUMANO': None}]},
 
                  # institucion registrante
                  {"KEYS": ["COD_INST_AVALA/COD_INST"],
@@ -272,14 +276,12 @@ graph_red = {"MAIN_TABLE": "EN_RED",
                  {"KEYS": ["COD_RH", "COD_RED"],
                   "DB":"__CVLAC__",
                   "TABLES":[{'RE_INSTITUCION_RED': [
-                             # institucion registrante
-                             {"KEYS": ["COD_INSTITUCION/COD_INST"],
+                             # instituciones
+                             {"KEYS": ["COD_RH", "COD_INSTITUCION/COD_INST"],
                               "DB":"__CVLAC__",
-                              "TABLES":[{'EN_INSTITUCION': None}
+                              "TABLES":[{'EN_INSTITUCION_OTRA': None}
                                         ]}
-
                              ]}
-
                             ]},
                  # Re-Autor otros
                  {"KEYS": ["COD_RH", "COD_RED"],
@@ -365,6 +367,7 @@ graph_red = {"MAIN_TABLE": "EN_RED",
 
              ]}
              ]}
+
 
 graph_schema["MODELS"].append(graph_red)
 graph_schema["MODELS"].append(graph_product)
