@@ -158,6 +158,10 @@ product_fields["EN_PALABRA_CLAVE"] = {
 product_fields["EN_PALABRA_CLAVE"]["fields"] = {
 }
 
+product_fields["EN_NIVEL_FORMACION"] = {"alias": "studies_level"}
+product_fields["EN_NIVEL_FORMACION"]["fields"] = {
+}
+
 
 ##
 # networks fields

@@ -21,8 +21,8 @@ def scienti_filter(table_name, data_row):
     for key, value in data_row.iteritems():
         if "FILTRO" in key:
             continue
-        if value == "nan":
-            continue
+        # if value == "nan":
+        #    continue
         if key == "TXT_CONTRASENA":
             continue
         data[key] = value
