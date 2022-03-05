@@ -12,7 +12,12 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                                 # birth city
                                  {"KEYS": ["COD_RH_MUN_NACIM/COD_RH_MUNICIPIO", "COD_MUN_NACIM/COD_MUNICIPIO"],
                                   "DB":"__CVLAC__",
-                                  "TABLES":[{'EN_MUNICIPIO': None}]},
+                                  "TABLES":[{'EN_MUNICIPIO': [
+                                      # pais
+                                      {"KEYS": ["SGL_PAIS"],
+                                       "DB":"__CVLAC__",
+                                       "TABLES":[{'EN_PAIS': None}]},
+                                  ]}]},
                                  # level of studies
                                  {"KEYS": ["COD_NIVEL_FORMACION"],
                                   "DB":"__CVLAC__",
@@ -23,7 +28,18 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                      # institucion registrante
                      {"KEYS": ["COD_INST_AVALA/COD_INST"],
                       "DB":"__CVLAC__",
-                      "TABLES":[{'EN_INSTITUCION': None}]},
+                      "TABLES":[{'EN_INSTITUCION': [
+                          # pais
+                          {"KEYS": ["SGL_PAIS"],
+                           "DB":"__CVLAC__",
+                           "TABLES":[{'EN_PAIS': None}]},
+
+                      ]}]},
+                     # Idioma
+                     {"KEYS": ["SGL_IDIOMA"],
+                         "DB":"__CVLAC__",
+                         "TABLES":[{'EN_IDIOMA': None}]},
+
                      # Prod type
                      # Prod type level 3
                      {"KEYS": ["COD_TIPO_PRODUCTO"],
@@ -75,8 +91,13 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                                     # institucion
                                     {"KEYS": ["COD_INST"],
                                      "DB":"__CVLAC__",
-                                     "TABLES":[{'EN_INSTITUCION': None}
-                                               ]}
+                                     "TABLES":[{'EN_INSTITUCION': [
+                                         # pais
+                                         {"KEYS": ["SGL_PAIS"],
+                                          "DB":"__CVLAC__",
+                                          "TABLES":[{'EN_PAIS': None}]},
+                                     ]}
+                                    ]}
                                 ]}
                                ]},
                                # Area reconocimiento level 2 (tiene 3 niveles máximo)
@@ -128,18 +149,71 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                                     [{"KEYS": ["COD_RH", "COD_PRODUCTO"],
                                       "DB":"__CVLAC__",
                                       "TABLES":[
-                                        # Patente
-                                        {'EN_PATENTE': None},
                                         # Producto Tecnilogico
-                                        {'EN_PROD_TECNOLOGICO': None},
+                                        {'EN_PROD_TECNOLOGICO': [
+                                            # Editorial
+                                            {"KEYS": ["COD_EDITORIAL"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_EDITORIAL': None}]},
+                                            # Editorial others
+                                            {"KEYS": ["COD_RH", "COD_EDITORIAL_OTRO/COD_EDITORIAL"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_EDITORIAL_OTRO': None}]},
+
+                                        ]},
                                         # secreto industrial
-                                        {'EN_SECRETO_INDUSTRIAL': None},
-                                        # software
+                                        {'EN_SECRETO_INDUSTRIAL': [
+                                            # Institucion
+                                            {"KEYS": ["COD_INSTITUCION/COD_INST"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_INSTITUCION': [
+                                                 # pais
+                                                 {"KEYS": ["SGL_PAIS"],
+                                                  "DB":"__CVLAC__",
+                                                  "TABLES":[{'EN_PAIS': None}]},
+                                             ]}]},
+                                            # Institucion otra
+                                            {"KEYS": ["COD_RH", "COD_INST_OTRO/COD_INST"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_INSTITUCION_OTRA': None}]},
+
+
+                                        ]},
+                                        # software (No tiene sub tablas)
                                         {'EN_PROD_SOFTWARE': None},
                                         # Registro
-                                        {'EN_REGISTRO': None},
-                                        # prod vegetal
+                                        {'EN_REGISTRO': [
+                                            # Institucion
+                                            {"KEYS": ["COD_INSTITUCION/COD_INST"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_INSTITUCION': [
+                                                 # pais
+                                                 {"KEYS": ["SGL_PAIS"],
+                                                  "DB":"__CVLAC__",
+                                                  "TABLES":[{'EN_PAIS': None}]},
+
+                                             ]}]},
+                                            # Institucion otra
+                                            {"KEYS": ["COD_RH", "COD_INST_OTRO/COD_INST"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_INSTITUCION_OTRA': None}]},
+                                        ]},
+                                        # prod vegetal (No tiene sub tablas)
                                         {'EN_PROD_VEGETAL': None},
+                                        # Producto Norma
+                                        {'EN_PROD_NORMA': [
+                                            # Editorial
+                                            {"KEYS": ["COD_EDITORIAL"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_EDITORIAL': None}]},
+                                            # Editorial others
+                                            {"KEYS": ["COD_RH", "COD_EDITORIAL_OTRO/COD_EDITORIAL"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_EDITORIAL_OTRO': None}]},
+
+                                        ]},
+                                        # Patente (Va a ser removido! patente es tabla primaria)
+                                        #{'EN_PATENTE': None},
 
                                     ]},
 
@@ -153,17 +227,48 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                           {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                            "DB":"__CVLAC__",
                            "TABLES":[{'EN_PROD_ARTISTICA_DETALLE': None}
-                                     ]}
+                                     ]},
+                          # Area reconocimiento level 2 (tiene 3 niveles máximo)
+                          {"KEYS": ['COD_RH_AREA_CON/COD_RH', 'COD_AREA_CONOCIMIENTO'],
+                           "DB":"__CVLAC__",
+                           "TABLES":[
+                               {"EN_AREA_CONOCIMIENTO": [
+                                   # Area reconocimiento level 1
+                                   {"KEYS": ['COD_RH_PADRE/COD_RH', "COD_AREA_PADRE/COD_AREA_CONOCIMIENTO"],
+                                    "DB":"__CVLAC__",
+                                    "TABLES":[{'EN_AREA_CONOCIMIENTO': [
+                                        # Area reconocimiento level 0
+                                        {"KEYS": ['COD_RH_PADRE/COD_RH', "COD_AREA_PADRE/COD_AREA_CONOCIMIENTO"],
+                                         "DB":"__CVLAC__",
+                                         "TABLES":[{'EN_AREA_CONOCIMIENTO': None}]},
+                                    ]}
+                                   ]},
+
+                               ]}
+                          ]},
                       ]}
                      ]},
-                     # Prod obra artistica (Details)
-                     {"KEYS": ["COD_RH", "COD_PRODUCTO"],
-                      "DB":"__CVLAC__",
-                      "TABLES":[{'EN_TESIS_ORIENTADA': None}]},
                      # Tesis orientada (Details)
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                       "DB":"__CVLAC__",
-                      "TABLES":[{'EN_TESIS_ORIENTADA': None}]},
+                      "TABLES":[{'EN_TESIS_ORIENTADA': [
+                          # Programa academico
+                          {"KEYS": ["COD_RH_PROGRAMA/COD_RH", "COD_PROGRAMA_ACADEMICO"],
+                           "DB":"__CVLAC__",
+                           "TABLES":[{'EN_PROGRAMA_ACADEMICO': None}]},
+                          # Institucion (HAY DOS OPCIONES ACA! COD_INST y CON_INSTITUCION)
+                          {"KEYS": ["COD_INST"],
+                           "DB":"__CVLAC__",
+                           "TABLES":[{'EN_INSTITUCION': [
+                               # pais
+                               {"KEYS": ["SGL_PAIS"],
+                                "DB":"__CVLAC__",
+                                "TABLES":[{'EN_PAIS': None}]},
+
+                           ]}]},
+
+
+                      ]}]},
                      # Producion audiovisual (Details)
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                          "DB":"__CVLAC__",
@@ -180,6 +285,15 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                          "DB":"__CVLAC__",
                          "TABLES":[{'EN_LIBRO': None}]},
+                     # Cursos (Details)
+                     {"KEYS": ["COD_RH", "COD_PRODUCTO"],
+                      "DB":"__CVLAC__",
+                      "TABLES":[{'EN_PROD_CURSO': None}]},
+                     # capitulo de momoria (Details)
+                     {"KEYS": ["COD_RH", "COD_PRODUCTO"],
+                      "DB":"__CVLAC__",
+                      "TABLES":[{'EN_PROD_CAP_MEMORIA': None}]},
+
                      # Prod Articulos (Details)
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                          "DB":"__CVLAC__",

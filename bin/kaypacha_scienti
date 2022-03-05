@@ -101,7 +101,6 @@ if __name__ == '__main__':
                 query = f"select * from {args.cvlac_user}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
             data = ora_graph.utils.request(query)
             print(f"Processing database for model {main_table} with {data.shape[0]} registers.")
-            # ora_graph.run2file("scienti.json",data,graph_base,graph_fields)
             if args.json:
                 ora_graph.run2file(args.json,data,model,graph_fields[main_table],max_threads, debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
             else:

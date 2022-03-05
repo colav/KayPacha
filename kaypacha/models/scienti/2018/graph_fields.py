@@ -1,5 +1,4 @@
 graph_fields = {}
-
 ##
 # product fields
 ##
@@ -121,13 +120,24 @@ product_fields["EN_PROD_CAPITULO_LIBRO"] = {
 product_fields["EN_PROD_CAPITULO_LIBRO"]["fields"] = {
 }
 
-product_fields["EN_LIBRO"] = {"alias": "book", "sub_section": "details"}
-product_fields["EN_LIBRO"]["fields"] = {
+product_fields["EN_PROD_NORMA"] = {"alias": "rule", "sub_section": "details"}
+product_fields["EN_PROD_NORMA"]["fields"] = {
 }
+product_fields["EN_PROD_CURSO"] = {"alias": "course", "sub_section": "details"}
+product_fields["EN_PROD_CURSO"]["fields"] = {
+}
+product_fields["EN_PROD_CAP_MEMORIA"] = {
+    "alias": "memory_chapter", "sub_section": "details"}
+product_fields["EN_PROD_CAP_MEMORIA"]["fields"] = {
+}
+
 
 product_fields["EN_PROD_ARTICULO"] = {
     "alias": "article", "sub_section": "details"}
 product_fields["EN_PROD_ARTICULO"]["fields"] = {
+}
+product_fields["EN_LIBRO"] = {"alias": "book", "sub_section": "details"}
+product_fields["EN_LIBRO"]["fields"] = {
 }
 
 product_fields["EN_REVISTA"] = {"alias": "journal", "sub_section": "details"}
@@ -160,6 +170,16 @@ product_fields["EN_PALABRA_CLAVE"]["fields"] = {
 
 product_fields["EN_NIVEL_FORMACION"] = {"alias": "studies_level"}
 product_fields["EN_NIVEL_FORMACION"]["fields"] = {
+}
+
+product_fields["EN_INSTITUCION_OTRA"] = {"alias": "institution_other"}
+product_fields["EN_INSTITUCION_OTRA"]["fields"] = {
+}
+product_fields["EN_PAIS"] = {"alias": "country"}
+product_fields["EN_PAIS"]["fields"] = {
+}
+product_fields["EN_IDIOMA"] = {"alias": "language"}
+product_fields["EN_IDIOMA"]["fields"] = {
 }
 
 
