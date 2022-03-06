@@ -299,7 +299,6 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                                {"KEYS": ["SGL_PAIS"],
                                 "DB":"__CVLAC__",
                                 "TABLES":[{'EN_PAIS': None}]},
-
                            ]}]},
 
 
@@ -395,15 +394,173 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                      # libro (Details)
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                          "DB":"__CVLAC__",
-                         "TABLES":[{'EN_LIBRO': None}]},
+                         "TABLES":[{'EN_LIBRO': [
+                             # Editorial
+                             {"KEYS": ["COD_EDITORIAL"],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_EDITORIAL': None}]},
+                             # Editorial others
+                             {"KEYS": ["COD_RH", "COD_EDITORIAL_OTRO/COD_EDITORIAL"],
+                              "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_EDITORIAL_OTRO': None}]},
+                             # relacion idiomas
+                             {"KEYS": ["COD_RH", "COD_PRODUCTOL"],
+                              "DB":"__CVLAC__",
+                                   "TABLES":[{'RE_LIBRO_IDIOMA': [
+                                       # Idioma
+                                       {"KEYS": ["SGL_IDIOMA"],
+                                        "DB":"__CVLAC__",
+                                        "TABLES":[{'EN_IDIOMA': None}]},
+
+                                   ]}]},
+
+
+                         ]}]},
                      # Cursos (Details)
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                       "DB":"__CVLAC__",
-                      "TABLES":[{'EN_PROD_CURSO': None}]},
+                      "TABLES":[{'EN_PROD_CURSO': [
+                          # municipio
+                          {"KEYS": ["COD_RH_MUNICIPIO", "COD_MUNICIPIO"],
+                           "DB":"__CVLAC__",
+                           "TABLES":[{'EN_MUNICIPIO': [
+                               # departamento
+                               {"KEYS": ["SGL_PAIS", "SGL_DEPARTAMENTO"],
+                                "DB":"__CVLAC__",
+                                "TABLES":[{'EN_DEPARTAMENTO': [
+                                    # pais
+                                    {"KEYS": ["SGL_PAIS"],
+                                     "DB":"__CVLAC__",
+                                     "TABLES":[{'EN_PAIS': None}]},
+
+                                ]}]},
+                           ]}]},
+                          # Institucion (HAY DOS OPCIONES ACA TAMBIEN! COD_INST y CON_INSTITUCION)cual??
+                          {"KEYS": ["COD_INST"],
+                           "DB":"__CVLAC__",
+                           "TABLES":[{'EN_INSTITUCION': [
+                               # pais
+                               {"KEYS": ["SGL_PAIS"],
+                                "DB":"__CVLAC__",
+                                "TABLES":[{'EN_PAIS': None}]},
+                           ]}]},
+                          # Institucion otra
+                          {"KEYS": ["COD_RH", "COD_INST_OTRO/COD_INST"],
+                           "DB":"__CVLAC__",
+                           "TABLES":[{'EN_INSTITUCION_OTRA': [
+                               # municipio
+                               {"KEYS": ["COD_RH_MUNICIPIO", "COD_MUNICIPIO"],
+                                "DB":"__CVLAC__",
+                                "TABLES":[{'EN_MUNICIPIO': [
+                                    # departamento
+                                    {"KEYS": ["SGL_PAIS", "SGL_DEPARTAMENTO"],
+                                     "DB":"__CVLAC__",
+                                     "TABLES":[{'EN_DEPARTAMENTO': [
+                                         # pais
+                                         {"KEYS": ["SGL_PAIS"],
+                                          "DB":"__CVLAC__",
+                                          "TABLES":[{'EN_PAIS': None}]},
+
+                                     ]}]},
+                                ]}]},
+
+                           ]}]},
+
+                      ]}]},
                      # capitulo de momoria (Details)
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                       "DB":"__CVLAC__",
-                      "TABLES":[{'EN_PROD_CAP_MEMORIA': None}]},
+                      "TABLES":[{'EN_PROD_CAP_MEMORIA': [
+                          # Libro otro
+                          {"KEYS": ["COD_RH", "COD_LIBRO_OTRO/COD_PRODUCTO"],
+                              "DB":"__CVLAC__",
+                              "TABLES":[{'EN_LIBRO_OTRO': [
+                                  # Editorial
+                                  {"KEYS": ["COD_EDITORIAL"],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_EDITORIAL': None}]},
+                                  # Editorial others
+                                  {"KEYS": ["COD_RH", "COD_EDITORIAL_OTRO/COD_EDITORIAL"],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_EDITORIAL_OTRO': None}]},
+                                  # revista
+                                  {"KEYS": ["COD_REVISTA"],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_REVISTA': [
+                                       # editorial
+                                       {"KEYS": ["COD_EDITORIAL"],
+                                        "DB":"__CVLAC__",
+                                        "TABLES":[{'EN_EDITORIAL': None}
+                                                  ]}
+                                   ]}
+                                  ]},
+                                  # tipo de producto nivel 3
+                                  {"KEYS": ["COD_TIPO_PRODUCTO"],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_TIPO_PRODUCTO': [
+                                       # tipo de producto nivel 2
+                                       {"KEYS": ["COD_TIPO_PRODUCTO_PADRE/COD_TIPO_PRODUCTO"],
+                                        "DB":"__CVLAC__",
+                                        "TABLES":[{'EN_TIPO_PRODUCTO': [
+                                            # tipo de producto nivel 1
+                                            {"KEYS": ["COD_TIPO_PRODUCTO_PADRE/COD_TIPO_PRODUCTO"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_TIPO_PRODUCTO': [
+                                                 # tipo de producto nivel 0
+                                                 {"KEYS": ["COD_TIPO_PRODUCTO_PADRE/COD_TIPO_PRODUCTO"],
+                                                  "DB":"__CVLAC__",
+                                                  "TABLES":[{'EN_TIPO_PRODUCTO': None}]},
+                                             ]}]},
+
+                                        ]}]},
+
+                                   ]}]},
+
+                              ]}]},
+                          # municipio
+                          {"KEYS": ["COD_RH_MUNICIPIO", "COD_MUNICIPIO"],
+                              "DB":"__CVLAC__",
+                              "TABLES":[{'EN_MUNICIPIO': [
+                                  # departamento
+                                  {"KEYS": ["SGL_PAIS", "SGL_DEPARTAMENTO"],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_DEPARTAMENTO': [
+                                       # pais
+                                       {"KEYS": ["SGL_PAIS"],
+                                        "DB":"__CVLAC__",
+                                        "TABLES":[{'EN_PAIS': None}]},
+
+                                   ]}]},
+                              ]}]},
+                          # revista
+                          {"KEYS": ["COD_REVISTA"],
+                              "DB":"__CVLAC__",
+                              "TABLES":[{'EN_REVISTA': [
+                                  # editorial
+                                  {"KEYS": ["COD_EDITORIAL"],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_EDITORIAL': None}
+                                             ]}
+                              ]}
+                          ]},
+                          # revista otra
+                          {"KEYS": ["COD_RH", "COD_REVISTA_OTRO/COD_REVISTA"],
+                              "DB":"__CVLAC__",
+                              "TABLES":[{'EN_REVISTA_OTRA': [
+                                  # Editorial
+                                  {"KEYS": ["COD_EDITORIAL"],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_EDITORIAL': None}
+                                             ]},
+                                  # Editorial otro
+                                  {"KEYS": ["COD_RH", "COD_EDITORIAL_OTRO/COD_EDITORIAL"],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_EDITORIAL_OTRO': None}
+                                             ]},
+                              ]}
+                          ]},
+
+                      ]}]},
 
                      # Prod Articulos (Details)
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
