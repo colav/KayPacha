@@ -9,14 +9,20 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                      {"KEYS": ["COD_RH"],
                       "DB":"__CVLAC__",
                       "TABLES":[{'EN_RECURSO_HUMANO': [
-                                # birth city
+                                # municipio
                                  {"KEYS": ["COD_RH_MUN_NACIM/COD_RH_MUNICIPIO", "COD_MUN_NACIM/COD_MUNICIPIO"],
                                   "DB":"__CVLAC__",
                                   "TABLES":[{'EN_MUNICIPIO': [
-                                      # pais
-                                      {"KEYS": ["SGL_PAIS"],
+                                      # departamento
+                                      {"KEYS": ["SGL_PAIS", "SGL_DEPARTAMENTO"],
                                        "DB":"__CVLAC__",
-                                       "TABLES":[{'EN_PAIS': None}]},
+                                       "TABLES":[{'EN_DEPARTAMENTO': [
+                                           # pais
+                                           {"KEYS": ["SGL_PAIS"],
+                                            "DB":"__CVLAC__",
+                                            "TABLES":[{'EN_PAIS': None}]},
+
+                                       ]}]},
                                   ]}]},
                                  # level of studies
                                  {"KEYS": ["COD_NIVEL_FORMACION"],
@@ -100,8 +106,8 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                                     ]}
                                 ]}
                                ]},
-                               # Area reconocimiento level 2 (tiene 3 niveles máximo)
-                               {"KEYS": ['COD_RH', 'COD_AREA_CONHEC/COD_AREA_CONOCIMIENTO'],
+                               # Area reconocimiento level 2 (tiene 3 niveles máximo) (es con COD_RH_AREA???)
+                               {"KEYS": ['COD_RH_AREA/COD_RH', 'COD_AREA_CONHEC/COD_AREA_CONOCIMIENTO'],
                                    "DB":"__CVLAC__",
                                    "TABLES":[
                                    {"EN_AREA_CONOCIMIENTO": [
@@ -175,9 +181,24 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                                             # Institucion otra
                                             {"KEYS": ["COD_RH", "COD_INST_OTRO/COD_INST"],
                                              "DB":"__CVLAC__",
-                                             "TABLES":[{'EN_INSTITUCION_OTRA': None}]},
+                                             "TABLES":[{'EN_INSTITUCION_OTRA': [
+                                                 # municipio
+                                                 {"KEYS": ["COD_RH_MUNICIPIO", "COD_MUNICIPIO"],
+                                                  "DB":"__CVLAC__",
+                                                  "TABLES":[{'EN_MUNICIPIO': [
+                                                      # departamento
+                                                      {"KEYS": ["SGL_PAIS", "SGL_DEPARTAMENTO"],
+                                                       "DB":"__CVLAC__",
+                                                       "TABLES":[{'EN_DEPARTAMENTO': [
+                                                           # pais
+                                                           {"KEYS": ["SGL_PAIS"],
+                                                            "DB":"__CVLAC__",
+                                                            "TABLES":[{'EN_PAIS': None}]},
 
+                                                       ]}]},
+                                                  ]}]},
 
+                                             ]}]},
                                         ]},
                                         # software (No tiene sub tablas)
                                         {'EN_PROD_SOFTWARE': None},
@@ -196,7 +217,25 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                                             # Institucion otra
                                             {"KEYS": ["COD_RH", "COD_INST_OTRO/COD_INST"],
                                              "DB":"__CVLAC__",
-                                             "TABLES":[{'EN_INSTITUCION_OTRA': None}]},
+                                             "TABLES":[{'EN_INSTITUCION_OTRA': [
+                                                 # municipio
+                                                 {"KEYS": ["COD_RH_MUNICIPIO", "COD_MUNICIPIO"],
+                                                  "DB":"__CVLAC__",
+                                                  "TABLES":[{'EN_MUNICIPIO': [
+                                                      # departamento
+                                                      {"KEYS": ["SGL_PAIS", "SGL_DEPARTAMENTO"],
+                                                       "DB":"__CVLAC__",
+                                                       "TABLES":[{'EN_DEPARTAMENTO': [
+                                                           # pais
+                                                           {"KEYS": ["SGL_PAIS"],
+                                                            "DB":"__CVLAC__",
+                                                            "TABLES":[{'EN_PAIS': None}]},
+
+                                                       ]}]},
+                                                  ]}]},
+
+                                             ]}]},
+
                                         ]},
                                         # prod vegetal (No tiene sub tablas)
                                         {'EN_PROD_VEGETAL': None},
@@ -212,8 +251,8 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                                              "TABLES":[{'EN_EDITORIAL_OTRO': None}]},
 
                                         ]},
-                                        # Patente (Va a ser removido! patente es tabla primaria)
-                                        #{'EN_PATENTE': None},
+                                        # Patente (patente es tabla primaria, no se va mas en profuncidad aca)
+                                        {'EN_PATENTE': None},
 
                                     ]},
 
@@ -256,7 +295,7 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                           {"KEYS": ["COD_RH_PROGRAMA/COD_RH", "COD_PROGRAMA_ACADEMICO"],
                            "DB":"__CVLAC__",
                            "TABLES":[{'EN_PROGRAMA_ACADEMICO': None}]},
-                          # Institucion (HAY DOS OPCIONES ACA! COD_INST y CON_INSTITUCION)
+                          # Institucion (HAY DOS OPCIONES ACA! COD_INST y CON_INSTITUCION)cual??
                           {"KEYS": ["COD_INST"],
                            "DB":"__CVLAC__",
                            "TABLES":[{'EN_INSTITUCION': [
@@ -272,11 +311,38 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                      # Producion audiovisual (Details)
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                          "DB":"__CVLAC__",
-                         "TABLES":[{'EN_PROD_AUDIOVISUAL': None}]},
+                         "TABLES":[{'EN_PROD_AUDIOVISUAL': [
+                             # municipio
+                             {"KEYS": ["COD_RH_MUNICIPIO", "COD_MUNICIPIO"],
+                              "DB":"__CVLAC__",
+                              "TABLES":[{'EN_MUNICIPIO': [
+                                  # departamento
+                                  {"KEYS": ["SGL_PAIS", "SGL_DEPARTAMENTO"],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[{'EN_DEPARTAMENTO': [
+                                       # pais
+                                       {"KEYS": ["SGL_PAIS"],
+                                        "DB":"__CVLAC__",
+                                        "TABLES":[{'EN_PAIS': None}]},
+
+                                   ]}]},
+                              ]}]},
+
+
+                         ]}]},
                      # Partitura (Details)
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                          "DB":"__CVLAC__",
-                         "TABLES":[{'EN_PROD_AUDIOVISUAL': None}]},
+                         "TABLES":[{'EN_PROD_PARTITURA': [
+                             # Editorial
+                             {"KEYS": ["COD_EDITORIAL"],
+                              "DB":"__CVLAC__",
+                              "TABLES":[{'EN_EDITORIAL': None}]},
+                             # Editorial others
+                             {"KEYS": ["COD_RH", "COD_EDITORIAL_OTRO/COD_EDITORIAL"],
+                              "DB":"__CVLAC__",
+                              "TABLES":[{'EN_EDITORIAL_OTRO': None}]},
+                         ]}]},
                      # Capitulo libro (Details)
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                          "DB":"__CVLAC__",
