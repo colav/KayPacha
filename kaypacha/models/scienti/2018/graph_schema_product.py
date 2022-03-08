@@ -657,6 +657,54 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                                      ]}
                       ]}
 
-                     ]}
+                     ]},
+                     # Re-Evento (details)
+                     {"KEYS": ["COD_RH", "COD_PRODUCTO"],
+                      "DB":"__CVLAC__",
+                      "TABLES":[{'RE_PRODUCTO_EVENTO': [
+                          # Evento (hasta acá llega evento, ya que es una tabla principal)
+                          {"KEYS": ["COD_RH", "COD_EVENTO"],
+                           "DB":"__CVLAC__",
+                           "TABLES":[{'EN_EVENTO': None}
+                                     ]}
+                      ]}
+
+                     ]},
+                     # Re-Comunidad (details)
+                     {"KEYS": ["COD_RH", "COD_PRODUCTO"],
+                      "DB":"__CVLAC__",
+                      "TABLES":[{'RE_PRODUCTO_COMUNIDAD': [
+                          # Comunidad
+                          {"KEYS": ["COD_RH", "COD_COMUNIDAD"],
+                           "DB":"__CVLAC__",
+                           "TABLES":[{'EN_COMUNIDAD': [
+                               # Municipio
+                               {"KEYS": ["COD_RH_MUNICIPIO", "COD_MUNICIPIO"],
+                                "DB":"__CVLAC__",
+                                "TABLES":[{'EN_MUNICIPIO': None}]},
+                               # Re-proyecto comunidad
+                               {"KEYS": ["COD_RH", "COD_COMUNIDAD"],
+                                "DB":"__CVLAC__",
+                                "TABLES":[{'RE_PROYECTO_COMUNIDAD': [
+                                    # proyecto (Aca muere proyecto por que es tabla primaria)
+                                    {"KEYS": ["COD_RH", "COD_PROYECTO"],
+                                     "DB":"__CVLAC__",
+                                     "TABLES":[{"EN_PROYECTO": None}]}
+                                ]}]},
+                               # Re-Red-comunidad
+                               {"KEYS": ["COD_RH", "COD_COMUNIDAD"],
+                                "DB":"__CVLAC__",
+                                "TABLES":[{'RE_RED_COMUNIDAD': [
+                                    # red (Aca muere Red por que es tabla primaria)
+                                    {"KEYS": ["COD_RH", "COD_RED"],
+                                     "DB":"__CVLAC__",
+                                     "TABLES":[{"EN_RED": None}]}
+                                ]}]},
+
+                           ]}
+                          ]},
+                      ]}
+
+                     ]},
                  ]}
                  ]}

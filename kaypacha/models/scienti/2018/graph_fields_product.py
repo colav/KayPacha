@@ -188,3 +188,14 @@ product_fields["EN_DEPARTAMENTO"]["fields"] = {
 product_fields["EN_LIBRO_OTRO"] = {"alias": "book_other"}
 product_fields["EN_LIBRO_OTRO"]["fields"] = {
 }
+product_fields["EN_EVENTO"] = {"alias": "event", "sub_section": "details"}
+product_fields["EN_EVENTO"]["fields"] = {
+}
+
+product_fields["EN_COMUNIDAD"] = {
+    "alias": "community", "sub_section": "details"}
+product_fields["EN_COMUNIDAD"]["fields"] = {
+}
+product_fields["EN_RED"] = {"alias": "network"}
+product_fields["EN_RED"]["fields"] = {
+}
