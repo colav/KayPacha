@@ -85,7 +85,8 @@ def main():
             'ukupacha',
             'cx_Oracle',
             'psutil',
-            'pymongo'
+            'pymongo>=3.12.0',
+            'joblib>=1.1.0'
         ],
     )
 

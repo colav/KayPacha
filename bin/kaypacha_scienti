@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-import argparse
-import importlib
-from pymongo import MongoClient
-from ukupacha.Graph import UkuPachaGraph
-from ukupacha.Utils import replace_graph_db_field
 from kaypacha.filters.scienti_filter import scienti_filter
+from ukupacha.Utils import replace_graph_db_field
+from ukupacha.Graph import UkuPachaGraph
+from pymongo import MongoClient
+import importlib
+import argparse
+import faulthandler
+faulthandler.enable()
 
 parser = argparse.ArgumentParser(description='Oracle to MongoDB')
 parser.add_argument('--max_threads', type=int, default=2,
@@ -27,25 +29,25 @@ parser.add_argument('--mongo_dburi', type=str,
                     default='mongodb://localhost:27017/', help='uri for MongoDb database')
 parser.add_argument('--mongo_dbname', type=str,
                     default=None, help='uri for MongoDb database')
-parser.add_argument('--drop_mongodb', action='store_true', help='uri for MongoDb database')
+parser.add_argument('--drop_mongodb', action='store_true',
+                    help='uri for MongoDb database')
 parser.add_argument('--model', type=str,
                     default=None, help='data model ex: product, network, project etc..')
 parser.add_argument('--sample', action='store_true',
                     help='process data sample')
 parser.add_argument('--sample_size', type=int,
-                    default=100,help='size of the sample')
+                    default=100, help='size of the sample')
 parser.add_argument('--json', type=str,
                     help='save results to json file')
 parser.add_argument('--json_save_regs', action='store_true',
                     help='save regs results to json file. but it works only if --json is enabled')
 
 
-
 if __name__ == '__main__':
     args = parser.parse_args()
     print(args)
     #import sys
-    #sys.exit(0)
+    # sys.exit(0)
     ora_graph = UkuPachaGraph(user=args.ora_sysuser,
                               password=args.ora_syspass, dburi=args.ora_dburi)
 
@@ -84,12 +86,14 @@ if __name__ == '__main__':
         if args.sample:
             query = f"select * from {args.cvlac_user}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
         data = ora_graph.utils.request(query)
-        print(f"Processing database for model {main_table} with {data.shape[0]} registers.")
+        print(
+            f"Processing database for model {main_table} with {data.shape[0]} registers.")
         if args.json:
-            ora_graph.run2file(args.json,data,model,graph_fields[main_table],max_threads, debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
+            ora_graph.run2file(args.json, data, model, graph_fields[main_table], max_threads,
+                               debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
         else:
             ora_graph.run2mongodb(data, model, graph_fields[main_table],
-                              mongo_dbname, args.mongo_dburi, max_threads,scienti_filter)
+                                  mongo_dbname, args.mongo_dburi, max_threads, scienti_filter)
     else:
         for model_name in graph_schema["MODELS"].keys():
             model = graph_schema["MODELS"][model_name]
@@ -100,9 +104,11 @@ if __name__ == '__main__':
             if args.sample:
                 query = f"select * from {args.cvlac_user}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
             data = ora_graph.utils.request(query)
-            print(f"Processing database for model {main_table} with {data.shape[0]} registers.")
+            print(
+                f"Processing database for model {main_table} with {data.shape[0]} registers.")
             if args.json:
-                ora_graph.run2file(args.json,data,model,graph_fields[main_table],max_threads, debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
+                ora_graph.run2file(args.json, data, model, graph_fields[main_table], max_threads,
+                                   debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
             else:
                 ora_graph.run2mongodb(data, model, graph_fields[main_table],
-                                mongo_dbname, args.mongo_dburi, max_threads,scienti_filter)
+                                      mongo_dbname, args.mongo_dburi, max_threads, scienti_filter)

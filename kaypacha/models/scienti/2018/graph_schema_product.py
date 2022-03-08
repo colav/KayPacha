@@ -72,11 +72,13 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
                          "DB":"__CVLAC__",
                          "TABLES":[{'RE_PROYECTO_PRODUCTO':
-                                    [{"KEYS": ["COD_RH", "COD_PROYECTO"],
-                                      "DB":"__CVLAC__",
-                                      "TABLES":[{'EN_PROYECTO': None}]},
+                                    [
+                                        # Tabla principal muere
+                                        {"KEYS": ["COD_RH", "COD_PROYECTO"],
+                                         "DB":"__CVLAC__",
+                                         "TABLES":[{'EN_PROYECTO': None}]},
 
-                                     ]}]},
+                                    ]}]},
 
                      # Grupo x Producto
                      {"KEYS": ["COD_RH", "COD_PRODUCTO"],
@@ -291,8 +293,9 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
                           {"KEYS": ["COD_RH_PROGRAMA/COD_RH", "COD_PROGRAMA_ACADEMICO"],
                            "DB":"__CVLAC__",
                            "TABLES":[{'EN_PROGRAMA_ACADEMICO': None}]},
-                          # Institucion (HAY DOS OPCIONES ACA! COD_INST y CON_INSTITUCION)cual??
-                          {"KEYS": ["COD_INST"],
+                          # Institucion (HAY DOS OPCIONES ACA! COD_INST y COD_INSTITUCION)
+                          # tomado COD_INSTITUCION por que hay más registros
+                          {"KEYS": ["COD_INSTITUCION/COD_INST"],
                            "DB":"__CVLAC__",
                            "TABLES":[{'EN_INSTITUCION': [
                                # pais
@@ -435,8 +438,9 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
 
                                 ]}]},
                            ]}]},
-                          # Institucion (HAY DOS OPCIONES ACA TAMBIEN! COD_INST y CON_INSTITUCION)cual??
-                          {"KEYS": ["COD_INST"],
+                          # Institucion (HAY DOS OPCIONES ACA TAMBIEN! COD_INST y COD_INSTITUCION)
+                          # se tomo COD_INSTITUCION por que tiene mas registros
+                          {"KEYS": ["COD_INSTITUCION/COD_INST"],
                            "DB":"__CVLAC__",
                            "TABLES":[{'EN_INSTITUCION': [
                                # pais
