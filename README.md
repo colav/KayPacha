@@ -25,7 +25,7 @@ kaypacha_scienti --model_year 2018 --model product --drop_mongodb --max_threads 
 
 Getting a JSon file sample for the model product for scienti (**WARNING**: getting the full DB in a file require a huge amount of RAM, use it with careful.)
 `
-kaypacha_scienti --model_year 2018 --model product --json prod.json --max_threads 2
+kaypacha_scienti --model_year 2018 --model product --json prod.json --max_threads 2 --sample
 `
 
 
