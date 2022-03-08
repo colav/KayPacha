@@ -46,8 +46,6 @@ parser.add_argument('--json_save_regs', action='store_true',
 if __name__ == '__main__':
     args = parser.parse_args()
     print(args)
-    #import sys
-    # sys.exit(0)
     ora_graph = UkuPachaGraph(user=args.ora_sysuser,
                               password=args.ora_syspass, dburi=args.ora_dburi)
 
@@ -77,6 +75,7 @@ if __name__ == '__main__':
         client = MongoClient(args.mongo_dburi)
         client.drop_database(mongo_dbname)
         client.close()
+        print(f"Database {mongo_dbname} dropped from mongodb.")
 
     if args.model:
         model = graph_schema["MODELS"][args.model]
