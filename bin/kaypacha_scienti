@@ -30,7 +30,7 @@ parser.add_argument('--mongo_dburi', type=str,
 parser.add_argument('--mongo_dbname', type=str,
                     default=None, help='uri for MongoDb database')
 parser.add_argument('--drop_mongodb', action='store_true',
-                    help='delete the database')
+                    help='delete the database, use it with carefull, deletes everything!')
 parser.add_argument('--drop_mongocol', action='store_true',
                     help='delete the collection in the db')
 parser.add_argument('--model', type=str,
