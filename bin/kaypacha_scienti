@@ -30,7 +30,9 @@ parser.add_argument('--mongo_dburi', type=str,
 parser.add_argument('--mongo_dbname', type=str,
                     default=None, help='uri for MongoDb database')
 parser.add_argument('--drop_mongodb', action='store_true',
-                    help='uri for MongoDb database')
+                    help='delete the database')
+parser.add_argument('--drop_mongocol', action='store_true',
+                    help='delete the collection in the db')
 parser.add_argument('--model', type=str,
                     default=None, help='data model ex: product, network, project etc..')
 parser.add_argument('--sample', action='store_true',
@@ -80,6 +82,13 @@ if __name__ == '__main__':
     if args.model:
         model = graph_schema["MODELS"][args.model]
         main_table = model["MAIN_TABLE"]
+        if args.drop_mongocol:
+            client = MongoClient(args.mongo_dburi)
+            colname = graph_fields[main_table][main_table]["alias"]
+            client[mongo_dbname][colname].drop()
+            client.close()
+            print(f"Collection {mongo_dbname}.{colname} dropped from mongodb.")
+
         graph = model["GRAPH"]
         query = f"select * from {args.cvlac_user}.{main_table}"
         if args.sample:

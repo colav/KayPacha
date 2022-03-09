@@ -33,6 +33,15 @@ network_fields["EN_PRODUCTO"]["fields"] = {
 network_fields["EN_MUNICIPIO"] = {"alias": "city"}
 network_fields["EN_MUNICIPIO"]["fields"] = {
 }
+
+network_fields["EN_DEPARTAMENTO"] = {"alias": "department"}
+network_fields["EN_DEPARTAMENTO"]["fields"] = {
+}
+
+network_fields["EN_PAIS"] = {"alias": "country"}
+network_fields["EN_PAIS"]["fields"] = {
+}
+
 network_fields["EN_PROYECTO"] = {"alias": "project"}
 network_fields["EN_PROYECTO"]["fields"] = {
 }
@@ -43,4 +52,8 @@ network_fields["EN_GRUPO_PESQUISA"]["fields"] = {
 
 network_fields["EN_AREA_CONOCIMIENTO"] = {"alias": "knowledge_area"}
 network_fields["EN_AREA_CONOCIMIENTO"]["fields"] = {
+}
+
+network_fields["EN_NIVEL_FORMACION"] = {"alias": "studies_level"}
+network_fields["EN_NIVEL_FORMACION"]["fields"] = {
 }
