@@ -1,6 +1,7 @@
 
 # RE_PROYECTO_RED está vacia, no se pueden obtener los proyectos por acá
 graph_network = {"MAIN_TABLE": "EN_RED",
+                 "CHECKPOINT": {"DB":"__CVLAC__","KEYS":["COD_RH","COD_RED"]},
                  "SCHEMA_VERSION": 0.1,
                  "GRAPH": [{"EN_RED": [
                      # autor registrante

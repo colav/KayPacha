@@ -2,7 +2,9 @@
 from kaypacha.filters.scienti_filter import scienti_filter
 from ukupacha.Utils import replace_graph_db_field
 from ukupacha.Graph import UkuPachaGraph
+from ukupacha.CheckPoint import UkuPachaCheckPoint
 from pymongo import MongoClient
+import sys
 import importlib
 import argparse
 import faulthandler
@@ -43,6 +45,8 @@ parser.add_argument('--json', type=str,
                     help='save results to json file')
 parser.add_argument('--json_save_regs', action='store_true',
                     help='save regs results to json file. but it works only if --json is enabled')
+parser.add_argument('--checkpoint', action='store_true',
+                    help='delete the collection in the db')
 
 
 if __name__ == '__main__':
@@ -50,7 +54,6 @@ if __name__ == '__main__':
     print(args)
     ora_graph = UkuPachaGraph(user=args.ora_sysuser,
                               password=args.ora_syspass, dburi=args.ora_dburi)
-
     model = args.model
     model_year = args.model_year
     mongo_dbname = args.mongo_dbname
@@ -68,6 +71,17 @@ if __name__ == '__main__':
     graph_schema = replace_graph_db_field(
         graph_schema, "__INSTITULAC__", args.institulac_user)
     max_threads = args.max_threads
+
+    ckp = None
+    if args.checkpoint:
+        ckp = UkuPachaCheckPoint(user=args.ora_sysuser, password=args.ora_syspass,
+                                 dburi=args.ora_dburi, mongodb_uri=args.mongo_dburi)
+    if args.checkpoint and args.json:
+        print("Error in parameters, --checkpoint and --json dont make sense, --checkpoint only works for mongodb", output=sys.stderr)
+        sys.exit(1)
+    if args.checkpoint and args.sample:
+        print("Error in parameters, --checkpoint and --sample dont make sense, --sample only works for json and checkpoint is not compatible with json(only with mongodb)", output=sys.stderr)
+        sys.exit(1)
 
     if max_threads > 2:
         print("max_threads can't be greater than 2 (https://www.oracle.com/database/technologies/appdev/xe.html)")
@@ -90,10 +104,24 @@ if __name__ == '__main__':
             print(f"Collection {mongo_dbname}.{colname} dropped from mongodb.")
 
         graph = model["GRAPH"]
-        query = f"select * from {args.cvlac_user}.{main_table}"
-        if args.sample:
-            query = f"select * from {args.cvlac_user}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
-        data = ora_graph.utils.request(query)
+        data = []
+        if args.checkpoint:
+            ckp_info = model["CHECKPOINT"]
+            model_alias = graph_fields[main_table][main_table]["alias"]
+            if not ckp.exists(mongo_dbname, model_alias):
+                print(
+                    f"CheckPoint not found for {mongo_dbname}.{model_alias} creating one...")
+                ckp.create(ckp_info["KEYS"], ckp_info["DB"],
+                           main_table, mongo_dbname, model_alias)
+
+            print(f"Getting checkpoint data for {mongo_dbname}.{model_alias}")
+            data = ckp.get_data_p(
+                args.cvlac_user, main_table, mongo_dbname, model_alias)
+        else:
+            query = f"select * from {args.cvlac_user}.{main_table}"
+            if args.sample:
+                query = f"select * from {args.cvlac_user}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
+            data = ora_graph.utils.request(query)
         print(
             f"Processing database for model {main_table} with {data.shape[0]} registers.")
         if args.json:
@@ -101,17 +129,31 @@ if __name__ == '__main__':
                                debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
         else:
             ora_graph.run2mongodb(data, model, graph_fields[main_table],
-                                  mongo_dbname, args.mongo_dburi, max_threads, scienti_filter)
+                                  mongo_dbname, args.mongo_dburi, max_threads, scienti_filter, ckp)
     else:
         for model_name in graph_schema["MODELS"].keys():
             model = graph_schema["MODELS"][model_name]
             main_table = model["MAIN_TABLE"]
             graph = model["GRAPH"]
+            data = []
+            if args.checkpoint:
+                ckp_info = model["CHECKPOINT"]
+                model_alias = graph_fields[main_table][main_table]["alias"]
+                if not ckp.exists(mongo_dbname, model_alias):
+                    print(
+                        f"CheckPoint not found for {mongo_dbname}.{model_alias} creating one...")
+                    ckp.create(ckp_info["KEYS"], ckp_info["DB"],
+                               main_table, mongo_dbname, model_alias)
 
-            query = f"select * from {args.cvlac_user}.{main_table}"
-            if args.sample:
-                query = f"select * from {args.cvlac_user}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
-            data = ora_graph.utils.request(query)
+                print(
+                    f"Getting checkpoint data for {mongo_dbname}.{model_alias}")
+                data = ckp.get_data_p(
+                    args.cvlac_user, main_table, mongo_dbname, model_alias)
+            else:
+                query = f"select * from {args.cvlac_user}.{main_table}"
+                if args.sample:
+                    query = f"select * from {args.cvlac_user}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
+                data = ora_graph.utils.request(query)
             print(
                 f"Processing database for model {main_table} with {data.shape[0]} registers.")
             if args.json:
@@ -119,4 +161,4 @@ if __name__ == '__main__':
                                    debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
             else:
                 ora_graph.run2mongodb(data, model, graph_fields[main_table],
-                                      mongo_dbname, args.mongo_dburi, max_threads, scienti_filter)
+                                      mongo_dbname, args.mongo_dburi, max_threads, scienti_filter, ckp)

@@ -1,4 +1,5 @@
 graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
+                 "CHECKPOINT": {"DB":"__CVLAC__","KEYS":["COD_RH","COD_PRODUCTO"]},
                  "SCHEMA_VERSION": 0.1,
                  "GRAPH": [{"EN_PRODUCTO": [
                      # autor registrante
