@@ -62,10 +62,16 @@ project_fields["EN_NIVEL_FORMACION"] = {"alias": "studies_level"}
 project_fields["EN_NIVEL_FORMACION"]["fields"] = {
 }
 
-project_fields["EN_TIPO_FINANCIACION"] = {"alias": "funding"}
+project_fields["EN_TIPO_FINANCIACION"] = {
+    "alias": "funding", "sub_section": "details"}
 project_fields["EN_TIPO_FINANCIACION"]["fields"] = {
 }
 
 project_fields["EN_EVENTO"] = {"alias": "event", "sub_section": "details"}
 project_fields["EN_EVENTO"]["fields"] = {
+}
+
+
+project_fields["EN_RED"] = {"alias": "network"}
+project_fields["EN_RED"]["fields"] = {
 }

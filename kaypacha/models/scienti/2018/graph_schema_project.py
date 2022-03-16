@@ -121,7 +121,98 @@ graph_project = {"MAIN_TABLE": "EN_PROYECTO",
                                      ]}
                       ]}
                      ]},
+                     # Re-proyecto Comunidad
+                     {"KEYS": ["COD_RH", "COD_PROYECTO"],
+                      "DB":"__CVLAC__",
+                      "TABLES":[{'RE_PROYECTO_COMUNIDAD': [
+                                 # Comunidad
+                                 {"KEYS": ["COD_RH", "COD_COMUNIDAD"],
+                                  "DB":"__CVLAC__",
+                                  "TABLES":[{'EN_COMUNIDAD': [
+                                       # municipio
+                                       {"KEYS": ["COD_RH_MUNICIPIO", "COD_MUNICIPIO"],
+                                        "DB":"__CVLAC__",
+                                        "TABLES":[{'EN_MUNICIPIO': [
+                                            # departamento
+                                            {"KEYS": ["SGL_PAIS", "SGL_DEPARTAMENTO"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_DEPARTAMENTO': [
+                                                 # pais
+                                                 {"KEYS": ["SGL_PAIS"],
+                                                  "DB":"__CVLAC__",
+                                                  "TABLES":[{'EN_PAIS': None}]},
 
+                                             ]}]},
+                                        ]}]},
+                                       # Re-comunidad RED
+                                       {"KEYS": ["COD_RH", "COD_COMUNIDAD"],
+                                           "DB":"__CVLAC__",
+                                           "TABLES":[{'RE_RED_COMUNIDAD': [
+                                               # red (aca muere por que red es tabla principal)
+                                               {"KEYS": ["COD_RH", "COD_RED"],
+                                                "DB":"__CVLAC__",
+                                                "TABLES":[{"EN_RED": None}]}
+                                           ]}]},
+                                       # Re-producto comunidad
+                                       {"KEYS": ["COD_RH", "COD_COMUNIDAD"],
+                                           "DB":"__CVLAC__",
+                                           "TABLES":[{'RE_PRODUCTO_COMUNIDAD': [
+                                               # producto (aca miere por que producto es tabla principal)
+                                               {"KEYS": ["COD_RH", "COD_PRODUCTO"],
+                                                "DB":"__CVLAC__",
+                                                "TABLES":[{"EN_PRODUCTO": None}]}
+                                           ]}]},
+
+                                  ]}
+                                 ]},
+                                 ]}
+                                ]},
+                     # Grupo x Proyecto
+                     {"KEYS": ["COD_RH", "COD_PROYECTO"],
+                      "DB":"__GRUPLAC__",
+                      "TABLES":[{'EN_PROYECTO_GR': [
+                          # Grupo
+                          {"KEYS": ["NRO_ID_GRUPO"],
+                           "DB":"__GRUPLAC__",
+                           "TABLES":[{"EN_GRUPO_PESQUISA": [
+                               # re_institucion
+                               {"KEYS": ["NRO_ID_GRUPO"],
+                                "DB":"__GRUPLAC__",
+                                "TABLES":[{'RE_GRUPO_INSTITUCION': [
+                                    # institucion
+                                    {"KEYS": ["COD_INST"],
+                                     "DB":"__CVLAC__",
+                                     "TABLES":[{'EN_INSTITUCION': [
+                                         # pais
+                                         {"KEYS": ["SGL_PAIS"],
+                                          "DB":"__CVLAC__",
+                                          "TABLES":[{'EN_PAIS': None}]},
+                                     ]}
+                                    ]}
+                                ]}
+                               ]},
+                               # Area reconocimiento level 2 (tiene 3 niveles máximo) (es con COD_RH_AREA???)
+                               {"KEYS": ['COD_RH_AREA/COD_RH', 'COD_AREA_CONHEC/COD_AREA_CONOCIMIENTO'],
+                                   "DB":"__CVLAC__",
+                                   "TABLES":[
+                                   {"EN_AREA_CONOCIMIENTO": [
+                                       # Area reconocimiento level 1
+                                       {"KEYS": ['COD_RH_PADRE/COD_RH', "COD_AREA_PADRE/COD_AREA_CONOCIMIENTO"],
+                                        "DB":"__CVLAC__",
+                                        "TABLES":[{'EN_AREA_CONOCIMIENTO': [
+                                            # Area reconocimiento level 0
+                                            {"KEYS": ['COD_RH_PADRE/COD_RH', "COD_AREA_PADRE/COD_AREA_CONOCIMIENTO"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_AREA_CONOCIMIENTO': None}]},
+                                        ]}
+                                       ]},
+
+                                   ]}
+                               ]},
+                           ]},
+                          ]},
+                      ]}
+                     ]},
 
                  ]}
                  ]}
