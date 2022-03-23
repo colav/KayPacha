@@ -19,8 +19,15 @@ Oracle DB Colav docker database for scienti have to be already loaded, [take a l
 Remember you only can use max 2 threads due a Oracle XE version limitation [more information here](https://docs.oracle.com/en/database/oracle/oracle-database/18/xeinl/licensing-restrictions.html)
 
 Saving the model product for scienti on MongoDB
+
 `
-kaypacha_scienti --model_year 2018 --model product --drop_mongodb --max_threads 2
+kaypacha_scienti --model_year 2018 --model product  --max_threads 2 --checkpoint
+`
+
+Saving all models for scienti on MongoDB
+
+`
+kaypacha_scienti --model_year 2018 --max_threads 2 --checkpoint
 `
 
 Getting a JSon file sample for the model product for scienti (**WARNING**: getting the full DB in a file require a huge amount of RAM, use it with careful.)
@@ -28,10 +35,20 @@ Getting a JSon file sample for the model product for scienti (**WARNING**: getti
 kaypacha_scienti --model_year 2018 --model product --json prod.json --max_threads 2 --sample
 `
 
+## Entities models supported fo Scienti
+* product (EN_PRODCUTO)
+* netowrk (EN_RED)
+* project (EN_PROYECTO)
 
 # TODO
-* support for checkpoints
-* implement all the main tables for Scienti. 
+* implement all the main tables for Scienti.
+  * event "EN_EVENT"
+  * resgiter "EN_REGISTRO"
+  * industrial_secret "EN_SECRETO_INDUSTRIAL"
+  * recognition "EN_RECONOCIMIENTO"
+  * event "EN_EVENTO"
+  * patent "EN_PATENTE"
+  * art_product "EN_PROD_ARTISTICA_DETALLE"
 
 # License
 BSD-3-Clause License 
