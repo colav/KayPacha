@@ -1,5 +1,6 @@
 
 graph_event = {"MAIN_TABLE": "EN_EVENTO",
+               "CHECKPOINT": {"DB": "__CVLAC__", "KEYS": ["COD_RH", "COD_EVENTO"]},
              "SCHEMA_VERSION": 0.1,
              "GRAPH": [{"EN_EVENTO": [
                  # autor registrante
