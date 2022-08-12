@@ -2,12 +2,12 @@
 # event fields
 ##
 event_fields = {}
-event_fields["EN_RED"]={"alias":"network"}
-event_fields["EN_RED"]["fields"]={
+event_fields["EN_RED"] = {"alias": "network"}
+event_fields["EN_RED"]["fields"] = {
 }
 
-event_fields["EN_EVENTO"]={"alias":"event"}
-event_fields["EN_EVENTO"]["fields"]={
+event_fields["EN_EVENTO"] = {"alias": "event"}
+event_fields["EN_EVENTO"]["fields"] = {
 }
 
 event_fields["EN_INSTITUCION"] = {"alias": "institution"}
@@ -26,8 +26,8 @@ event_fields["EN_RECURSO_HUMANO_OTRO"] = {"alias": "author_others"}
 event_fields["EN_RECURSO_HUMANO_OTRO"]["fields"] = {
 }
 
-event_fields["EN_COMUNIDAD"]={"alias":"community","sub_section":"details"}
-event_fields["EN_COMUNIDAD"]["fields"]={
+event_fields["EN_COMUNIDAD"] = {"alias": "community", "sub_section": "details"}
+event_fields["EN_COMUNIDAD"]["fields"] = {
 }
 event_fields["EN_PRODUCTO"] = {"alias": "product", "sub_section": "details"}
 event_fields["EN_PRODUCTO"]["fields"] = {
