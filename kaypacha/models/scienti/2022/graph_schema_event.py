@@ -213,6 +213,15 @@ graph_event = {"MAIN_TABLE": "EN_EVENTO",
                        ]}
 
                    ]},
+                   # Proyecto directo de evento
+                   {"KEYS": ["COD_RH", "COD_EVENTO"],
+                    "DB":"__CVLAC__",
+                         "TABLES":[{'RE_EVENTO_PROYECTO':
+                                    [{"KEYS": ["COD_RH", "COD_PROYECTO"],
+                                      "DB":"__CVLAC__",
+                                      "TABLES":[{'EN_PROYECTO': None}]},
+
+                                     ]}]},
 
 
                ]}
