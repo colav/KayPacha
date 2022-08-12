@@ -172,13 +172,46 @@ graph_event = {"MAIN_TABLE": "EN_EVENTO",
                    # Re-evento Area de conocimiento
                    {"KEYS": ["COD_RH/COD_RH_EVENTO", "COD_EVENTO"],
                        "DB":"__CVLAC__",
-                       "TABLES":[{'RE_EVENTO_AREA_CON': [
-                           # producto  (aca muere por que producto es tabla principal)
-                           {"KEYS": ["COD_RH_AREA_CON/COD_RH", "COD_AREA_CONOCIMIENTO"],
+                       "TABLES":[
+                           {'RE_EVENTO_AREA_CON': [
+                               # producto  (aca muere por que producto es tabla principal)
+                               {"KEYS": ["COD_RH_AREA_CON/COD_RH", "COD_AREA_CONOCIMIENTO"],
+                                "DB":"__CVLAC__",
+                                "TABLES":[
+                                # Area reconocimiento level 2 (tiene 3 niveles máximo)
+                                {"EN_AREA_CONOCIMIENTO": [
+                                    # Area reconocimiento level 1
+                                    {"KEYS": ['COD_RH_PADRE/COD_RH', "COD_AREA_PADRE/COD_AREA_CONOCIMIENTO"],
+                                        "DB":"__CVLAC__",
+                                        "TABLES":[{'EN_AREA_CONOCIMIENTO': [
+                                            # Area reconocimiento level 0
+                                            {"KEYS": ['COD_RH_PADRE/COD_RH', "COD_AREA_PADRE/COD_AREA_CONOCIMIENTO"],
+                                             "DB":"__CVLAC__",
+                                             "TABLES":[{'EN_AREA_CONOCIMIENTO': None}]},
+                                        ]}
+                                    ]},
+
+                                ]}
+                               ]}
+                           ]}
+                   ]},
+                   # Re-Sector Apliación
+                   {"KEYS": ["COD_RH", "COD_EVENTO"],
+                       "DB":"__CVLAC__",
+                       "TABLES":[{'RE_EVENTO_SECTOR_APL': [
+                           # sector aplicación nivel 2
+                           {"KEYS": ["COD_SECTOR_APLICACION"],
                             "DB":"__CVLAC__",
-                            "TABLES":[{'EN_AREA_CONOCIMIENTO': None}
-                                      ]}
+                            "TABLES":[{'EN_SECTOR_APLICACION': [
+                                # sector aplicación nivel 1
+                                {"KEYS": ["COD_SECT_APLIC_PADRE/COD_SECTOR_APLICACION"],
+                                 "DB":"__CVLAC__",
+                                 "TABLES":[{'EN_SECTOR_APLICACION': None}
+                                           ]}
+                            ]}
+                           ]}
                        ]}
+
                    ]},
 
 

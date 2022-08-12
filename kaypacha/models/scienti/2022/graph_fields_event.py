@@ -56,3 +56,11 @@ event_fields["EN_PALABRA_CLAVE"]["fields"] = {
 event_fields["EN_PAIS"] = {"alias": "country"}
 event_fields["EN_PAIS"]["fields"] = {
 }
+
+event_fields["EN_SECTOR_APLICACION"] = {
+    "alias": "application_sector", "sub_section": "details"}
+event_fields["EN_SECTOR_APLICACION"]["fields"] = {
+}
+
+# adding fields for every main entity
+graph_fields["EN_EVENTO"] = event_fields
