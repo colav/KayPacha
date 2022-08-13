@@ -222,7 +222,10 @@ graph_event = {"MAIN_TABLE": "EN_EVENTO",
                                       "TABLES":[{'EN_PROYECTO': None}]},
 
                                      ]}]},
-
+                   # Proyecto tipo
+                   {"KEYS": ["TPO_EVENTO"],
+                    "DB":"__CVLAC__",
+                    "TABLES":[{'EN_TIPO_EVENTO': None}]},
 
                ]}
                ]}

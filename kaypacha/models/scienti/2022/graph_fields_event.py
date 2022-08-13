@@ -61,3 +61,9 @@ event_fields["EN_SECTOR_APLICACION"] = {
     "alias": "application_sector", "sub_section": "details"}
 event_fields["EN_SECTOR_APLICACION"]["fields"] = {
 }
+
+
+event_fields["EN_TIPO_EVENTO"] = {
+    "alias": "type"}
+event_fields["EN_TIPO_EVENTO"]["fields"] = {
+}
