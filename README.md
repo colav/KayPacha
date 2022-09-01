@@ -21,30 +21,31 @@ Remember you only can use max 2 threads due a Oracle XE version limitation [more
 Saving the model product for scienti on MongoDB (default users are UDEA_CV,UDEA_GR,UDEA_IN)
 
 `
-kaypacha_scienti --model_year 2018 --model product  --max_threads 2 --checkpoint
+kaypacha_scienti --model_year 2022 --model product  --max_threads 2 --checkpoint
 `
 
 Saving all models for scienti on MongoDB
 
 `
-kaypacha_scienti --model_year 2018 --max_threads 2 --checkpoint
+kaypacha_scienti --model_year 2022 --max_threads 2 --checkpoint
 `
 
 Getting a JSon file sample for the model product for scienti (**WARNING**: getting the full DB in a file require a huge amount of RAM, use it with careful.)
 `
-kaypacha_scienti --model_year 2018 --model product --json prod.json --max_threads 2 --sample
+kaypacha_scienti --model_year 2022 --model product --json prod.json --max_threads 2 --sample
 `
 
 ### Example university of externado
 
 `
-kaypacha_scienti --model_year 2018 --model product --max_threads 2 --cvlac_user UEXT_CV --gruplac_user UEXT_GR --institulac_user UEXT_IN --checkpoint
+kaypacha_scienti --model_year 2022 --model product --max_threads 2 --cvlac_user UEXT_CV --gruplac_user UEXT_GR --institulac_user UEXT_IN --checkpoint
 `
 
 ## Entities models supported fo Scienti
 * product (EN_PRODCUTO)
 * netowrk (EN_RED)
 * project (EN_PROYECTO)
+* event (EN_EVENTO)
 
 # TODO
 * implement all the main tables for Scienti.
