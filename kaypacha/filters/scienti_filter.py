@@ -16,7 +16,7 @@ def scienti_filter(table_name, data_row):
 
     NOTE: this is called by the funciton ukupacha.Utils.parse_table
     """
-    data_row.dropna(inplace=True)
+    #data_row.dropna(inplace=True)
     data = {}
     for key, value in data_row.iteritems():
         if "FILTRO" in key:
