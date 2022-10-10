@@ -111,10 +111,10 @@ if __name__ == '__main__':
             f"Processing database for model {main_table} with {data.shape[0]} registers.")
         if args.json:
             ora_graph.run2file(args.json, data, model, graph_fields[main_table], max_threads,
-                               debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
+                               debug=False, save_regs=False, save_raws=False, filter_function=siiu_filter)
         else:
             ora_graph.run2mongodb(data, model, graph_fields[main_table],
-                                  mongo_dbname, args.mongo_dburi, max_threads, scienti_filter, ckp)
+                                  mongo_dbname, args.mongo_dburi, max_threads, siiu_filter, ckp)
     else:
         for model_name in graph_schema["MODELS"].keys():
             model = graph_schema["MODELS"][model_name]
@@ -143,7 +143,7 @@ if __name__ == '__main__':
                 f"Processing database for model {main_table} with {data.shape[0]} registers.")
             if args.json:
                 ora_graph.run2file(args.json, data, model, graph_fields[main_table], max_threads,
-                                   debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
+                                   debug=False, save_regs=False, save_raws=False, filter_function=siiu_filter)
             else:
                 ora_graph.run2mongodb(data, model, graph_fields[main_table],
-                                      mongo_dbname, args.mongo_dburi, max_threads, scienti_filter, ckp)
+                                      mongo_dbname, args.mongo_dburi, max_threads, siiu_filter, ckp)
