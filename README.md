@@ -7,6 +7,14 @@ SQL data extraction for Scienti and Colav parners  Oracle databases
 Package extract the data from SQL databases from Oracle Databases from Scienti or Colav parners
 Models are defined here, filters etc..
 
+# Dependecies needed before installation
+Before installing the package, you need to install Graphviz
+
+## Ubuntu and Debian
+`sudo apt-get install graphviz graphviz-dev`
+
+If you need more information about the installation, visit: https://pygraphviz.github.io/documentation/stable/install.html
+
 # Installation
 
 ## Package
