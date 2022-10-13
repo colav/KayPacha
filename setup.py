@@ -86,8 +86,7 @@ def main():
             'cx_Oracle',
             'psutil',
             'pymongo>=3.12.0',
-            'joblib>=1.1.0',
-            'pygraphviz'
+            'joblib>=1.1.0'
         ],
     )
 
