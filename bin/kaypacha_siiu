@@ -3,6 +3,7 @@ from kaypacha.filters.siiu_filter import siiu_filter
 from ukupacha.Utils import replace_graph_db_field
 from ukupacha.Graph import UkuPachaGraph
 from ukupacha.CheckPoint import UkuPachaCheckPoint
+from ukupacha.ModelDiagram import ModelDiagram
 from pymongo import MongoClient
 import sys
 import importlib
@@ -28,22 +29,27 @@ parser.add_argument('--drop_mongodb', action='store_true',
 parser.add_argument('--drop_mongocol', action='store_true',
                     help='delete the collection in the db')
 parser.add_argument('--model', type=str,
-                    default=None, help='data model ex: project etc..')
+                    default=None, help='data model ex: SIIU_PROYECTO etc..')
 parser.add_argument('--sample', action='store_true',
                     help='process data sample')
+parser.add_argument('--rand_sample', action='store_true',
+                    help='process a random data sample')
 parser.add_argument('--sample_size', type=int,
                     default=100, help='size of the sample')
+parser.add_argument('--sample_percent', type=float,
+                    default=1.5, help='percentage of the sample')
 parser.add_argument('--json', type=str,
                     help='save results to json file')
 parser.add_argument('--json_save_regs', action='store_true',
                     help='save regs results to json file. but it works only if --json is enabled')
 parser.add_argument('--checkpoint', action='store_true',
                     help='delete the collection in the db')
+parser.add_argument('--make_diagram', nargs=2,
+                    help='Draw the tables that compose the given model on either a svg (by default) or png file')
 
 
 if __name__ == '__main__':
     args = parser.parse_args()
-    print(args)
     ora_graph = UkuPachaGraph(user=args.ora_sysuser,
                               password=args.ora_syspass, dburi=args.ora_dburi)
     model = args.model
@@ -54,10 +60,14 @@ if __name__ == '__main__':
         f'kaypacha.models.siiu.graph_schema').graph_schema
     graph_fields = importlib.import_module(
         f'kaypacha.models.siiu.graph_fields').graph_fields
-
     max_threads = args.max_threads
 
     ckp = None
+    if args.make_diagram:
+        model_diagram = ModelDiagram(ora_graph.utils)
+        model_diagram.make_diagram(graph_schema["MODELS"][args.make_diagram[0]], args.make_diagram[0], args.make_diagram[1])
+        print(f"The diagram for {args.make_diagram[0]} was created")
+        sys.exit()
     if args.checkpoint:
         ckp = UkuPachaCheckPoint(user=args.ora_sysuser, password=args.ora_syspass,
                                  dburi=args.ora_dburi, mongodb_uri=args.mongo_dburi)
@@ -106,6 +116,9 @@ if __name__ == '__main__':
             query = f"select * from BUPP.{main_table}"
             if args.sample:
                 query = f"select * from BUPP.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
+            elif args.rand_sample:
+                print(args.sample_percent)
+                query = f"select * from BUPP.{main_table} SAMPLE({args.sample_percent})"
             data = ora_graph.utils.request(query)
         print(
             f"Processing database for model {main_table} with {data.shape[0]} registers.")
@@ -138,6 +151,9 @@ if __name__ == '__main__':
                 query = f"select * from BUPP.{main_table}"
                 if args.sample:
                     query = f"select * from BUPP.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
+                elif args.rand_sample:
+                    print(args.sample_percent)
+                    query = f"select * from BUPP.{main_table} SAMPLE({args.sample_percent})"
                 data = ora_graph.utils.request(query)
             print(
                 f"Processing database for model {main_table} with {data.shape[0]} registers.")
