@@ -7,6 +7,14 @@ SQL data extraction for Scienti and Colav parners  Oracle databases
 Package extract the data from SQL databases from Oracle Databases from Scienti or Colav parners
 Models are defined here, filters etc..
 
+# Dependecies needed before installation
+Before installing the package, you need to install Graphviz
+
+## Ubuntu and Debian
+`sudo apt-get install graphviz graphviz-dev`
+
+If you need more information about the installation, visit: https://pygraphviz.github.io/documentation/stable/install.html
+
 # Installation
 
 ## Package
@@ -14,6 +22,8 @@ Models are defined here, filters etc..
 
 
 # Usage
+
+## Scienti
 Oracle DB Colav docker database for scienti have to be already loaded, [take a look here](https://github.com/colav/oracle-docker)
 
 Remember you only can use max 2 threads due a Oracle XE version limitation [more information here](https://docs.oracle.com/en/database/oracle/oracle-database/18/xeinl/licensing-restrictions.html)
@@ -41,13 +51,13 @@ kaypacha_scienti --model_year 2022 --model product --json prod.json --max_thread
 kaypacha_scienti --model_year 2022 --model product --max_threads 2 --cvlac_user UEXT_CV --gruplac_user UEXT_GR --institulac_user UEXT_IN --checkpoint
 `
 
-## Entities models supported fo Scienti
+### Entities models supported fo Scienti
 * product (EN_PRODCUTO)
 * netowrk (EN_RED)
 * project (EN_PROYECTO)
 * event (EN_EVENTO)
 
-# TODO
+### TODO
 * implement all the main tables for Scienti.
   * event "EN_EVENT"
   * resgiter "EN_REGISTRO"
@@ -56,6 +66,52 @@ kaypacha_scienti --model_year 2022 --model product --max_threads 2 --cvlac_user 
   * event "EN_EVENTO"
   * patent "EN_PATENTE"
   * art_product "EN_PROD_ARTISTICA_DETALLE"
+
+## SIIU
+Oracle DB Colav docker database for siiu have to be already loaded, [take a look here](https://github.com/colav/oracle-docker)
+
+Remember you only can use max 2 threads due a Oracle XE version limitation [more information here](https://docs.oracle.com/en/database/oracle/oracle-database/18/xeinl/licensing-restrictions.html)
+
+Saving the model project for siiu on MongoDB
+
+`
+kaypacha_siiu --model project  --max_threads 2 --checkpoint
+`
+
+Saving all models for siiu on MongoDB
+
+`
+kaypacha_siiu --max_threads 2 --checkpoint
+`
+Getting a JSON file sample for the model product for scienti (**WARNING**: getting the full DB in a file require a huge amount of RAM, use it with careful.)
+
+Getting the first 100 registers
+
+`
+kaypacha_siiu --model project --json project.json --max_threads 2 --sample
+`
+
+Getting a random sample, 5.5% of the total amount of registers
+
+`
+kaypacha_siiu --model project --json project.json --max_threads 2 --rand_sample --sample_percent 5.5
+`
+
+Making a graph of the model (There are two types of files supported: svg and png)
+`
+kaypacha_siiu --make_diagram project svg
+`
+
+### Entities models supported fo SIIU
+* project (SIIU_PROYECTO)
+
+
+#### Some errors
+`
+[WARNING] ORA-12504: TNS:listener was not given the SERVICE_NAME in CONNECT_DATA
+`
+A possible solution is to use --ora_dburi 0.0.0.0:1521/XE
+
 
 # License
 BSD-3-Clause License 
