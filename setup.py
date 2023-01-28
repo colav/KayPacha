@@ -68,7 +68,7 @@ def main():
 
         # Details
         url="https://github.com/colav/KayPacha",
-        scripts=['bin/kaypacha_scienti'],
+        scripts=['bin/kaypacha_scienti','bin/kaypacha_siiu'],
         #
         license="BSD",
 
