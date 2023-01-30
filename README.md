@@ -56,15 +56,13 @@ kaypacha_scienti --mongo_dbname  scienti_uec --model product --max_threads 2 --c
 * netowrk (EN_RED)
 * project (EN_PROYECTO)
 * event (EN_EVENTO)
+* patent (EN_PATENTE)
 
 ### TODO
 * implement all the main tables for Scienti.
-  * event "EN_EVENT"
   * resgiter "EN_REGISTRO"
   * industrial_secret "EN_SECRETO_INDUSTRIAL"
   * recognition "EN_RECONOCIMIENTO"
-  * event "EN_EVENTO"
-  * patent "EN_PATENTE"
   * art_product "EN_PROD_ARTISTICA_DETALLE"
 
 ## SIIU
@@ -113,6 +111,13 @@ kaypacha_siiu --make_diagram project svg
 A possible solution is to use --ora_dburi 0.0.0.0:1521/XE
 
 
+# Generating Diagrams with BlockDiag
+Exaple for patent on scienti.<br>
+Also support formats such as SVG and PDF.
+
+`
+kaypacha_blockdiag --model scienti --submodel patent --filename patent.png 
+`
 # License
 BSD-3-Clause License 
 
