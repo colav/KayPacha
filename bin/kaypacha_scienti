@@ -102,22 +102,23 @@ if __name__ == '__main__':
 
         graph = model["GRAPH"]
         data = []
+        initial_db = model["CHECKPOINT"]["DB"]
         if args.checkpoint:
             ckp_info = model["CHECKPOINT"]
             model_alias = graph_fields[main_table][main_table]["alias"]
             if not ckp.exists(mongo_dbname, model_alias):
                 print(
                     f"CheckPoint not found for {mongo_dbname}.{model_alias} creating one...")
-                ckp.create(ckp_info["KEYS"], ckp_info["DB"],
+                ckp.create(ckp_info["KEYS"], initial_db,
                            main_table, mongo_dbname, model_alias)
 
             print(f"Getting checkpoint data for {mongo_dbname}.{model_alias}")
             data = ckp.get_data_p(
-                args.cvlac_user, main_table, mongo_dbname, model_alias)
+                initial_db, main_table, mongo_dbname, model_alias)
         else:
-            query = f"select * from {args.cvlac_user}.{main_table}"
+            query = f"select * from {initial_db}.{main_table}"
             if args.sample:
-                query = f"select * from {args.cvlac_user}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
+                query = f"select * from {initial_db}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
             data = ora_graph.utils.request(query)
         print(
             f"Processing database for model {main_table} with {data.shape[0]} registers.")
@@ -133,23 +134,24 @@ if __name__ == '__main__':
             main_table = model["MAIN_TABLE"]
             graph = model["GRAPH"]
             data = []
+            initial_db = model["CHECKPOINT"]["DB"]
             if args.checkpoint:
                 ckp_info = model["CHECKPOINT"]
                 model_alias = graph_fields[main_table][main_table]["alias"]
                 if not ckp.exists(mongo_dbname, model_alias):
                     print(
                         f"CheckPoint not found for {mongo_dbname}.{model_alias} creating one...")
-                    ckp.create(ckp_info["KEYS"], ckp_info["DB"],
+                    ckp.create(ckp_info["KEYS"], initial_db,
                                main_table, mongo_dbname, model_alias)
 
                 print(
                     f"Getting checkpoint data for {mongo_dbname}.{model_alias}")
                 data = ckp.get_data_p(
-                    args.cvlac_user, main_table, mongo_dbname, model_alias)
+                    initial_db, main_table, mongo_dbname, model_alias)
             else:
-                query = f"select * from {args.cvlac_user}.{main_table}"
+                query = f"select * from {initial_db}.{main_table}"
                 if args.sample:
-                    query = f"select * from {args.cvlac_user}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
+                    query = f"select * from {initial_db}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
                 data = ora_graph.utils.request(query)
             print(
                 f"Processing database for model {main_table} with {data.shape[0]} registers.")
