@@ -31,24 +31,30 @@ Remember you only can use max 2 threads due a Oracle XE version limitation [more
 Saving the model product for scienti on MongoDB (default users are UDEA_CV,UDEA_GR,UDEA_IN)
 
 `
-kaypacha_scienti --mongo_dbname  scienti_udea --model product  --max_threads 2 --checkpoint
+kaypacha_scienti --mongo_dbname  scienti_udea_2022 --model product  --max_threads 2 --checkpoint
 `
 
 Saving all models for scienti on MongoDB
 
 `
-kaypacha_scienti --mongo_dbname  scienti_udea --max_threads 2 --checkpoint
+kaypacha_scienti --mongo_dbname  scienti_udea_2022 --max_threads 2 --checkpoint
 `
 
 Getting a JSon file sample for the model product for scienti (**WARNING**: getting the full DB in a file require a huge amount of RAM, use it with careful.)
 `
-kaypacha_scienti --mongo_dbname  scienti_udea --model product --json prod.json --max_threads 2 --sample
+kaypacha_scienti --mongo_dbname  scienti_udea_2022 --model product --json prod.json --max_threads 2 --sample
 `
 
 ### Example university of externado
 
 `
-kaypacha_scienti --mongo_dbname  scienti_uec --model product --max_threads 2 --cvlac_user UEC_CV --gruplac_user UEC_GR --institulac_user UEC_IN --checkpoint
+kaypacha_scienti --mongo_dbname  scienti_uec_2022 --model product --max_threads 2 --cvlac_user UEC_CV --gruplac_user UEC_GR --institulac_user UEC_IN --checkpoint
+`
+
+or
+
+`
+kaypacha_scienti --mongo_dbname  scienti_uec_2022 --model endorsement --max_threads 2 --cvlac_user UEC_CV --gruplac_user UEC_GR --institulac_user UEC_IN --checkpoint
 `
 
 ### Entities models supported fo Scienti
