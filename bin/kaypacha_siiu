@@ -111,7 +111,7 @@ if __name__ == '__main__':
 
             print(f"Getting checkpoint data for {mongo_dbname}.{model_alias}")
             data = ckp.get_data_p(
-                args.cvlac_user, main_table, mongo_dbname, model_alias)
+                "BUPP", main_table, mongo_dbname, model_alias)
         else:
             query = f"select * from BUPP.{main_table}"
             if args.sample:
