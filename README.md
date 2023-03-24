@@ -1,3 +1,5 @@
+[![Python package](https://github.com/colav/KayPacha/actions/workflows/python-package.yml/badge.svg)](https://github.com/colav/KayPacha/actions/workflows/python-package.yml)
+
 <center><img src="https://raw.githubusercontent.com/colav/colav.github.io/master/img/Logo.png"/></center>
 
 # KayPacha
