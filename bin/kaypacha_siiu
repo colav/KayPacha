@@ -46,7 +46,9 @@ parser.add_argument('--checkpoint', action='store_true',
                     help='delete the collection in the db')
 parser.add_argument('--make_diagram', nargs=2,
                     help='Draw the tables that compose the given model on either a svg (by default) or png file')
-
+indexes = {}
+indexes["project"] = [("NOMBRE_CORTO", "text"), ("NOMBRE_COMPLETO", "text"),
+                      ("PALABRAS_CLAVES", "text"), ("descriptive_text.TEXTO_INGRESADO", "text")]
 
 if __name__ == '__main__':
     args = parser.parse_args()
@@ -65,7 +67,8 @@ if __name__ == '__main__':
     ckp = None
     if args.make_diagram:
         model_diagram = ModelDiagram(ora_graph.utils)
-        model_diagram.make_diagram(graph_schema["MODELS"][args.make_diagram[0]], args.make_diagram[0], args.make_diagram[1])
+        model_diagram.make_diagram(
+            graph_schema["MODELS"][args.make_diagram[0]], args.make_diagram[0], args.make_diagram[1])
         print(f"The diagram for {args.make_diagram[0]} was created")
         sys.exit()
     if args.checkpoint:
@@ -128,6 +131,10 @@ if __name__ == '__main__':
         else:
             ora_graph.run2mongodb(data, model, graph_fields[main_table],
                                   mongo_dbname, args.mongo_dburi, max_threads, siiu_filter, ckp)
+            client = MongoClient(args.mongo_dburi)
+            client[mongo_dbname][args.model].drop_indexes()
+            client[mongo_dbname][args.model].create_index(indexes[args.model])
+            client.close()
     else:
         for model_name in graph_schema["MODELS"].keys():
             model = graph_schema["MODELS"][model_name]
@@ -163,3 +170,7 @@ if __name__ == '__main__':
             else:
                 ora_graph.run2mongodb(data, model, graph_fields[main_table],
                                       mongo_dbname, args.mongo_dburi, max_threads, siiu_filter, ckp)
+                client = MongoClient(args.mongo_dburi)
+                client[mongo_dbname][model_name].drop_indexes()
+                client[mongo_dbname][model_name].create_index(indexes[model_name])
+                client.close()
