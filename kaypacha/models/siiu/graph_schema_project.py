@@ -2,9 +2,9 @@ graph_project = {
     "MAIN_TABLE": "SIIU_PROYECTO",
     "CHECKPOINT": {"DB": "BUPP", "KEYS": ["CODIGO"]},
     "SCHEMA_VERSION": 0.1,
-    "GRAPH":[
+    "GRAPH": [
         {
-            "SIIU_PROYECTO":[
+            "SIIU_PROYECTO": [
 
                 {
                     "KEYS": ["CODIGO/PROYECTO"],
@@ -72,7 +72,7 @@ graph_project = {
                                                 }
                                             ]
                                         }
-                                    ]  
+                                    ]
                                 }
                             ]
                         },
@@ -110,7 +110,7 @@ graph_project = {
                                     "TABLES": [
                                         {"SIIU_PERSONA_JURIDICA": None}
                                     ]
-                                    
+
                                 },
                                 {
                                     "KEYS": ["GRUPO/IDENTIFICADOR"],
@@ -171,7 +171,7 @@ graph_project = {
                             ]
                         }
                     ]
-            
+
                 },
                 {
                     "KEYS": ["CODIGO/CODIGO_PROYECTO"],
@@ -214,7 +214,15 @@ graph_project = {
                     "TABLES":[
                         {"SIIU_SUBTIPO_PROYECTO": None}
                     ]
-                }
+                },
+                {
+                    "KEYS": ["CONVOCATORIA/IDENTIFICADOR"],
+                    "DB":"BUPP",
+                    "TABLES":[
+                        {"SIIU_CONVOCATORIA": None}
+                    ]
+                },
+
             ]
         }
     ]
