@@ -222,6 +222,13 @@ graph_project = {
                         {"SIIU_CONVOCATORIA": None}
                     ]
                 },
+                {
+                    "KEYS": ["MODALIDAD_CONVOCATORIA/IDENTIFICADOR"],
+                    "DB":"BUPP",
+                    "TABLES":[
+                        {"SIIU_MODALIDAD_CONVOCATORIA": None}
+                    ]
+                },
 
             ]
         }

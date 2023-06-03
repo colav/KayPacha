@@ -161,3 +161,6 @@ project_fields["SIIU_PERSONA_JURIDICA"]["fields"] = {
 project_fields["SIIU_CONVOCATORIA"] = {"alias": "call"}
 project_fields["SIIU_CONVOCATORIA"]["fields"] = {
 }
+project_fields["SIIU_MODALIDAD_CONVOCATORIA"] = {"alias": "call_modality"}
+project_fields["SIIU_MODALIDAD_CONVOCATORIA"]["fields"] = {
+}
