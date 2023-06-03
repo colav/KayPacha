@@ -6,7 +6,8 @@ project_fields["SIIU_PROYECTO"] = {"alias": "project"}
 project_fields["SIIU_PROYECTO"]["fields"] = {
 }
 
-project_fields["SIIU_COMPROMISO_POR_PROYECTO"] = {"alias": "project_commitment"}
+project_fields["SIIU_COMPROMISO_POR_PROYECTO"] = {
+    "alias": "project_commitment"}
 project_fields["SIIU_COMPROMISO_POR_PROYECTO"]["fields"] = {
 }
 
@@ -38,7 +39,8 @@ project_fields["SIIU_EVALUACION_CIENTIFICA"] = {"alias": "cientific_eval"}
 project_fields["SIIU_EVALUACION_CIENTIFICA"]["fields"] = {
 }
 
-project_fields["SIIU_EVALUADOR_RECOMENDADO"] = {"alias": "recommended_evaluator"}
+project_fields["SIIU_EVALUADOR_RECOMENDADO"] = {
+    "alias": "recommended_evaluator"}
 project_fields["SIIU_EVALUADOR_RECOMENDADO"]["fields"] = {
 }
 
@@ -50,7 +52,8 @@ project_fields["SIIU_PARTICIPANTE_PROYECTO"] = {"alias": "project_participant"}
 project_fields["SIIU_PARTICIPANTE_PROYECTO"]["fields"] = {
 }
 
-project_fields["SIIU_ROL_PARTICIPANTE_PROYECTO"] = {"alias": "project_participant_role"}
+project_fields["SIIU_ROL_PARTICIPANTE_PROYECTO"] = {
+    "alias": "project_participant_role"}
 project_fields["SIIU_ROL_PARTICIPANTE_PROYECTO"]["fields"] = {
 }
 
@@ -62,11 +65,13 @@ project_fields["SIIU_APORTANTE_PROYECTO"] = {"alias": "project_contributor"}
 project_fields["SIIU_APORTANTE_PROYECTO"]["fields"] = {
 }
 
-project_fields["SIIU_SEGUIMIENTO_APORTANTE"] = {"alias": "contributor_follow_up"}
+project_fields["SIIU_SEGUIMIENTO_APORTANTE"] = {
+    "alias": "contributor_follow_up"}
 project_fields["SIIU_SEGUIMIENTO_APORTANTE"]["fields"] = {
 }
 
-project_fields["SIIU_MODIFICACION_PRESUPUESTAL"] = {"alias": "budget_modification"}
+project_fields["SIIU_MODIFICACION_PRESUPUESTAL"] = {
+    "alias": "budget_modification"}
 project_fields["SIIU_MODIFICACION_PRESUPUESTAL"]["fields"] = {
 }
 
@@ -122,7 +127,8 @@ project_fields["SIIU_COMPONENTE_PROYECTO"] = {"alias": "project_component"}
 project_fields["SIIU_COMPONENTE_PROYECTO"]["fields"] = {
 }
 
-project_fields["SIIU_DETALLE_MODIF_PPTAL"] = {"alias": "budget_modification_details"}
+project_fields["SIIU_DETALLE_MODIF_PPTAL"] = {
+    "alias": "budget_modification_details"}
 project_fields["SIIU_DETALLE_MODIF_PPTAL"]["fields"] = {
 }
 
@@ -130,23 +136,28 @@ project_fields["SIIU_SEGUIMIENTO_PRESUPUESTO"] = {"alias": "budget_follow_up"}
 project_fields["SIIU_SEGUIMIENTO_PRESUPUESTO"]["fields"] = {
 }
 
-project_fields["SIIU_SEGUIMIENTO_PPTO_INICIAL"] = {"alias": "initial_budget_follow_up"}
+project_fields["SIIU_SEGUIMIENTO_PPTO_INICIAL"] = {
+    "alias": "initial_budget_follow_up"}
 project_fields["SIIU_SEGUIMIENTO_PPTO_INICIAL"]["fields"] = {
 }
 
-project_fields["SMAP_SOL_ADICION_PRESUPUESTAL"] = {"alias": "budget_addition_request"}
+project_fields["SMAP_SOL_ADICION_PRESUPUESTAL"] = {
+    "alias": "budget_addition_request"}
 project_fields["SMAP_SOL_ADICION_PRESUPUESTAL"]["fields"] = {
 }
 
-project_fields["SMAP_SOLICITUD_CAMBIO_RUBRO"] = {"alias": "item_change_request"}
+project_fields["SMAP_SOLICITUD_CAMBIO_RUBRO"] = {
+    "alias": "item_change_request"}
 project_fields["SMAP_SOLICITUD_CAMBIO_RUBRO"]["fields"] = {
 }
 
-project_fields["SIIU_ETAPA_PROCESO_SELECCION"] = {"alias": "selection_process_stage"}
+project_fields["SIIU_ETAPA_PROCESO_SELECCION"] = {
+    "alias": "selection_process_stage"}
 project_fields["SIIU_ETAPA_PROCESO_SELECCION"]["fields"] = {
 }
 
-project_fields["SIIU_FECHA_PROCESO_SELECCION"] = {"alias": "selection_process_date"}
+project_fields["SIIU_FECHA_PROCESO_SELECCION"] = {
+    "alias": "selection_process_date"}
 project_fields["SIIU_FECHA_PROCESO_SELECCION"]["fields"] = {
 }
 
