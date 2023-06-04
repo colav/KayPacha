@@ -28,20 +28,40 @@ graph_call = {
                             "DB":"BUPP",
                             "TABLES":[
                                 {"SIIU_FECHA_PROCESO_SELECCION": [{
-                                 "KEYS": ["ETAPA_PROCESO_SELECCION/IDENTIFICADOR"],
-                                 "DB":"BUPP",
-                                 "TABLES":[{"SIIU_ETAPA_PROCESO_SELECCION": [{
-                                     "KEYS": ["INSTANCIA_ADMINISTRATIVA/IDENTIFICADOR"],
-                                     "DB":"BUPP",
-                                     "TABLES":[{"SIIU_INSTANCIA_ADMINISTRATIVA": None}]
-                                 }]}]
-                                 }
-                                ]}]
+                                    "KEYS": ["ETAPA_PROCESO_SELECCION/IDENTIFICADOR"],
+                                    "DB":"BUPP",
+                                    "TABLES":[
+                                        {"SIIU_ETAPA_PROCESO_SELECCION": [{
+                                            "KEYS": ["INSTANCIA_ADMINISTRATIVA/IDENTIFICADOR"],
+                                            "DB":"BUPP",
+                                            "TABLES":[
+                                                {"SIIU_INSTANCIA_ADMINISTRATIVA": [{
+                                                    "KEYS": ["INSTANCIA_SUPERIOR/IDENTIFICADOR"],
+                                                    "DB":"BUPP",
+                                                    "TABLES":[{
+                                                        "SIIU_INSTANCIA_ADMINISTRATIVA": [{
+                                                            "KEYS": ["INSTANCIA_SUPERIOR/IDENTIFICADOR"],
+                                                            "DB":"BUPP",
+                                                            "TABLES":[{
+                                                                "SIIU_INSTANCIA_ADMINISTRATIVA": [{
+                                                                    "KEYS": ["INSTANCIA_SUPERIOR/IDENTIFICADOR"],
+                                                                    "DB":"BUPP",
+                                                                    "TABLES":[{
+                                                                        "SIIU_INSTANCIA_ADMINISTRATIVA": None
+                                                                    }]
+                                                                }]
+                                                            }]
+                                                        }]
+                                                    }]
+                                                }]
+                                                }]
+                                        }]
+                                        }]
+                                }]
+                                }]
                         }]
-                        }
-                    ]
+                        }]
                 },
-
             ]
         }
     ]
