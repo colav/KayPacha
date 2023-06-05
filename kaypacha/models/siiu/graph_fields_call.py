@@ -32,3 +32,34 @@ call_fields["SIIU_INSTANCIA_ADMINISTRATIVA"] = {
     "alias": "administrative_instance"}
 call_fields["SIIU_INSTANCIA_ADMINISTRATIVA"]["fields"] = {
 }
+
+call_fields["SIIU_CONVOCA_DISPONIBILIDAD"] = {
+    "alias": "call_availability"}
+call_fields["SIIU_CONVOCA_DISPONIBILIDAD"]["fields"] = {
+}
+
+call_fields["SIIU_SUBTIPO_DISPONIBILIDAD"] = {
+    "alias": "subtype_availability"}
+call_fields["SIIU_SUBTIPO_DISPONIBILIDAD"]["fields"] = {
+}
+
+call_fields["SIIU_SUBTIPO_DISPONIBILIDAD"] = {
+    "alias": "subtype_availability"}
+call_fields["SIIU_SUBTIPO_DISPONIBILIDAD"]["fields"] = {
+}
+
+call_fields["SIIU_TIPO_DISPONIBILIDAD"] = {
+    "alias": "type_availability"}
+call_fields["SIIU_TIPO_DISPONIBILIDAD"]["fields"] = {
+}
+
+call_fields["SIIU_APLICACION_DISPONIBILIDAD"] = {
+    "alias": "application_availability"}
+call_fields["SIIU_APLICACION_DISPONIBILIDAD"]["fields"] = {
+}
+
+call_fields["SIIU_PERFIL_AUTORIZACION"] = {
+    "alias": "profile_authorization"}
+call_fields["SIIU_PERFIL_AUTORIZACION"]["fields"] = {
+}
+

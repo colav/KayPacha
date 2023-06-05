@@ -62,6 +62,38 @@ graph_call = {
                         }]
                         }]
                 },
+                {
+                    "KEYS": ["IDENTIFICADOR"],
+                    "DB":"BUPP",
+                    "TABLES":[{
+                        "SIIU_CONVOCA_DISPONIBILIDAD": [{ # this part is not documented in the ER diagram
+                            "KEYS": ["SUBTIPO"],          # I dont want just to leave a table with numbers and not relations
+                            "DB":"BUPP",
+                            "TABLES":[{
+                                "SIIU_SUBTIPO_DISPONIBILIDAD": [{
+                                    "KEYS": ["TIPO"],
+                                    "DB":"BUPP",
+                                    "TABLES":[{
+                                        "SIIU_TIPO_DISPONIBILIDAD": None
+                                    }]
+                                },
+                                {
+                                    "KEYS": ["APLICACION"],
+                                    "DB":"BUPP",
+                                    "TABLES":[{
+                                        "SIIU_APLICACION_DISPONIBILIDAD": None
+                                    }]
+                                },{
+                                    "KEYS": ["PERFIL"],
+                                    "DB":"BUPP",
+                                    "TABLES":[{
+                                        "SIIU_PERFIL_AUTORIZACION": None
+                                    }]
+                                }]
+                            }]
+                        }]
+                    }]
+                }
             ]
         }
     ]
