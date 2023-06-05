@@ -93,6 +93,17 @@ graph_call = {
                             }]
                         }]
                     }]
+                },
+                {
+                    "KEYS": ["IDENTIFICADOR/CONVOCATORIA"],
+                    "DB":"BUPP",
+                    "TABLES":[{
+                        "SIIU_COMPROMISO": [{
+                            "KEYS": ["IDENTIFICADOR/COMPROMISO"],
+                            "DB":"BUPP",
+                            "TABLES":[{"SIIU_COMPROMISO_POR_PROYECTO":None}]
+                        }]
+                    }]
                 }
             ]
         }

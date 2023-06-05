@@ -43,11 +43,6 @@ call_fields["SIIU_SUBTIPO_DISPONIBILIDAD"] = {
 call_fields["SIIU_SUBTIPO_DISPONIBILIDAD"]["fields"] = {
 }
 
-call_fields["SIIU_SUBTIPO_DISPONIBILIDAD"] = {
-    "alias": "subtype_availability"}
-call_fields["SIIU_SUBTIPO_DISPONIBILIDAD"]["fields"] = {
-}
-
 call_fields["SIIU_TIPO_DISPONIBILIDAD"] = {
     "alias": "type_availability"}
 call_fields["SIIU_TIPO_DISPONIBILIDAD"]["fields"] = {
@@ -63,3 +58,12 @@ call_fields["SIIU_PERFIL_AUTORIZACION"] = {
 call_fields["SIIU_PERFIL_AUTORIZACION"]["fields"] = {
 }
 
+call_fields["SIIU_COMPROMISO"] = {
+    "alias": "commitment"}
+call_fields["SIIU_COMPROMISO"]["fields"] = {
+}
+
+call_fields["SIIU_COMPROMISO_POR_PROYECTO"] = {
+    "alias": "commitment_by_project"}
+call_fields["SIIU_COMPROMISO"]["fields"] = {
+}
