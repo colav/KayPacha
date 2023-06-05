@@ -23,7 +23,7 @@ project_fields["SIIU_ESTADO_PROYECTO"] = {"alias": "project_state"}
 project_fields["SIIU_ESTADO_PROYECTO"]["fields"] = {
 }
 
-project_fields["SIIU_AVAL_APROBACION"] = {"alias": "aprob_aval"}
+project_fields["SIIU_AVAL_APROBACION"] = {"alias": "endorsement_approval"}
 project_fields["SIIU_AVAL_APROBACION"]["fields"] = {
 }
 
@@ -35,7 +35,7 @@ project_fields["SIIU_EVALUACION_TECNICA"] = {"alias": "technical_eval"}
 project_fields["SIIU_EVALUACION_TECNICA"]["fields"] = {
 }
 
-project_fields["SIIU_EVALUACION_CIENTIFICA"] = {"alias": "cientific_eval"}
+project_fields["SIIU_EVALUACION_CIENTIFICA"] = {"alias": "scientific_eval"}
 project_fields["SIIU_EVALUACION_CIENTIFICA"]["fields"] = {
 }
 
