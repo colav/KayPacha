@@ -67,3 +67,8 @@ call_fields["SIIU_COMPROMISO_POR_PROYECTO"] = {
     "alias": "commitment_by_project"}
 call_fields["SIIU_COMPROMISO"]["fields"] = {
 }
+
+call_fields["SIIU_CONVOCATORIA_INSTANCIA"] = {
+    "alias": "call_instance"}
+call_fields["SIIU_CONVOCATORIA_INSTANCIA"]["fields"] = {
+}

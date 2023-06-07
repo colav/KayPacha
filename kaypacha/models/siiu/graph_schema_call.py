@@ -66,8 +66,9 @@ graph_call = {
                     "KEYS": ["IDENTIFICADOR"],
                     "DB":"BUPP",
                     "TABLES":[{
-                        "SIIU_CONVOCA_DISPONIBILIDAD": [{ # this part is not documented in the ER diagram
-                            "KEYS": ["SUBTIPO"],          # I dont want just to leave a table with numbers and not relations
+                        "SIIU_CONVOCA_DISPONIBILIDAD": [{  # this part is not documented in the ER diagram
+                            # I dont want just to leave a table with numbers and not relations
+                            "KEYS": ["SUBTIPO"],
                             "DB":"BUPP",
                             "TABLES":[{
                                 "SIIU_SUBTIPO_DISPONIBILIDAD": [{
@@ -77,13 +78,13 @@ graph_call = {
                                         "SIIU_TIPO_DISPONIBILIDAD": None
                                     }]
                                 },
-                                {
+                                    {
                                     "KEYS": ["APLICACION"],
                                     "DB":"BUPP",
                                     "TABLES":[{
                                         "SIIU_APLICACION_DISPONIBILIDAD": None
                                     }]
-                                },{
+                                }, {
                                     "KEYS": ["PERFIL"],
                                     "DB":"BUPP",
                                     "TABLES":[{
@@ -101,10 +102,41 @@ graph_call = {
                         "SIIU_COMPROMISO": [{
                             "KEYS": ["IDENTIFICADOR/COMPROMISO"],
                             "DB":"BUPP",
-                            "TABLES":[{"SIIU_COMPROMISO_POR_PROYECTO":None}]
+                            "TABLES":[{"SIIU_COMPROMISO_POR_PROYECTO": None}]
                         }]
                     }]
-                }
+                },
+                {
+                    "KEYS": ["IDENTIFICADOR"],
+                    "DB":"BUPP",
+                    "TABLES":[{
+                        "SIIU_CONVOCATORIA_INSTANCIA": [{
+                            "KEYS": ["INSTANCIA/IDENTIFICADOR"],
+                            "DB":"BUPP",
+                            "TABLES":[{
+                                "SIIU_INSTANCIA_ADMINISTRATIVA": [{
+                                    "KEYS": ["INSTANCIA_SUPERIOR/IDENTIFICADOR"],
+                                    "DB":"BUPP",
+                                    "TABLES":[{
+                                        "SIIU_INSTANCIA_ADMINISTRATIVA": [{
+                                            "KEYS": ["INSTANCIA_SUPERIOR/IDENTIFICADOR"],
+                                            "DB":"BUPP",
+                                            "TABLES":[{
+                                                "SIIU_INSTANCIA_ADMINISTRATIVA": [{
+                                                    "KEYS": ["INSTANCIA_SUPERIOR/IDENTIFICADOR"],
+                                                    "DB":"BUPP",
+                                                    "TABLES":[{
+                                                        "SIIU_INSTANCIA_ADMINISTRATIVA": None
+                                                    }]
+                                                }]
+                                            }]
+                                        }]
+                                    }]
+                                }]
+                            }]
+                        }]
+                    }]
+                },
             ]
         }
     ]
