@@ -57,7 +57,7 @@ if __name__ == '__main__':
     model = args.model
     mongo_dbname = args.mongo_dbname
     if not mongo_dbname:
-        mongo_dbname = f"siiu_udea"
+        mongo_dbname = f"kaypacha_siiu"
     graph_schema = importlib.import_module(
         f'kaypacha.models.siiu.graph_schema').graph_schema
     graph_fields = importlib.import_module(
@@ -151,7 +151,7 @@ if __name__ == '__main__':
                 print(
                     f"Getting checkpoint data for {mongo_dbname}.{model_alias}")
                 data = ckp.get_data_p(
-                    args.cvlac_user, main_table, mongo_dbname, model_alias)
+                    "BUPP", main_table, mongo_dbname, model_alias)
             else:
                 query = f"select * from BUPP.{main_table}"
                 if args.sample:
