@@ -132,8 +132,6 @@ if __name__ == '__main__':
             ora_graph.run2mongodb(data, model, graph_fields[main_table],
                                   mongo_dbname, args.mongo_dburi, max_threads, siiu_filter, ckp)
             client = MongoClient(args.mongo_dburi)
-            client[mongo_dbname][args.model].drop_indexes()
-            client[mongo_dbname][args.model].create_index(indexes[args.model])
             client.close()
     else:
         for model_name in graph_schema["MODELS"].keys():
@@ -171,6 +169,4 @@ if __name__ == '__main__':
                 ora_graph.run2mongodb(data, model, graph_fields[main_table],
                                       mongo_dbname, args.mongo_dburi, max_threads, siiu_filter, ckp)
                 client = MongoClient(args.mongo_dburi)
-                client[mongo_dbname][model_name].drop_indexes()
-                client[mongo_dbname][model_name].create_index(indexes[model_name])
                 client.close()
