@@ -47,7 +47,7 @@ Getting a JSon file sample for the model product for scienti (**WARNING**: getti
 kaypacha_scienti --mongo_dbname  scienti_udea_2022 --model product --json prod.json --max_threads 2 --sample
 `
 
-### Example university of externado
+### Example U externado
 
 `
 kaypacha_scienti --mongo_dbname  scienti_uec_2022 --model product --max_threads 2 --cvlac_user UEC_CV --gruplac_user UEC_GR --institulac_user UEC_IN --checkpoint
@@ -58,6 +58,19 @@ or
 `
 kaypacha_scienti --mongo_dbname  scienti_uec_2022 --model endorsement --max_threads 2 --cvlac_user UEC_CV --gruplac_user UEC_GR --institulac_user UEC_IN --checkpoint
 `
+
+### Example Unaula
+
+`
+kaypacha_scienti --mongo_dbname  scienti_ual_2023  --max_threads 2 --cvlac_user UNAULA_CV --gruplac_user UNAULA_GR --institulac_user UNAULA_IN --checkpoint
+`
+
+### Example Univalle
+
+`
+kaypacha_scienti --mongo_dbname  scienti_univalle_2023  --max_threads 2 --cvlac_user UVALLE_CV --gruplac_user UVALLE_GR --institulac_user UVALLE_IN --checkpoint
+`
+
 
 ### Entities models supported fo Scienti
 * product (EN_PRODCUTO)
