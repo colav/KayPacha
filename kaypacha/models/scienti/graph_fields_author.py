@@ -1,9 +1,26 @@
 ##
 # author fields
 ##
+graph_fields = {}
+
+
+##
+# author fields
+##
 author_fields = {}
-author_fields["EN_PROYECTO"]={"alias":"project"}
-author_fields["EN_PROYECTO"]["fields"]={
+
+author_fields["EN_ACT_ADMINISTRACION"] = {"alias": "admin_activities"}
+author_fields["EN_ACT_ADMINISTRACION"]["fields"] = {
+}
+author_fields["EN_ACT_INVESTIGACION"] = {"alias": "research_activities"}
+author_fields["EN_ACT_INVESTIGACION"]["fields"] = {
+}
+author_fields["EN_ACT_DOCENCIA"] = {"alias": "teaching_activities"}
+author_fields["EN_ACT_DOCENCIA"]["fields"] = {
+}
+
+author_fields["EN_PROYECTO"] = {"alias": "project"}
+author_fields["EN_PROYECTO"]["fields"] = {
 }
 
 author_fields["EN_TIPO_NACIONALIDAD"] = {"alias": "nationality"}
@@ -66,6 +83,17 @@ author_fields["EN_TRAYECTORIA_ESCOLAR"]["fields"] = {
 }
 author_fields["EN_PROGRAMA_ACADEMICO"] = {"alias": "academic_program"}
 author_fields["EN_PROGRAMA_ACADEMICO"]["fields"] = {
+}
+
+author_fields["EN_TRAYECTORIA_PROFESIONAL"] = {
+    "alias": "professional_trajectory"}
+author_fields["EN_TRAYECTORIA_PROFESIONAL"]["fields"] = {
+}
+
+
+author_fields["EN_TIPO_FINANCIACION"] = {
+    "alias": "funding", "sub_section": "details"}
+author_fields["EN_TIPO_FINANCIACION"]["fields"] = {
 }
 
 author_fields["EN_EVENTO"] = {"alias": "event", "sub_section": "details"}
