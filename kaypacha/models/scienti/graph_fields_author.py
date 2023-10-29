@@ -9,6 +9,22 @@ graph_fields = {}
 ##
 author_fields = {}
 
+author_fields["EN_PRODUCTO"] = {"alias": "product", "sub_section": "details"}
+author_fields["EN_PRODUCTO"]["fields"] = {
+}
+author_fields["EN_PROYECTO"] = {"alias": "project", "sub_section": "details"}
+author_fields["EN_PROYECTO"]["fields"] = {
+}
+
+author_fields["EN_EVENTO"] = {"alias": "event", "sub_section": "details"}
+author_fields["EN_EVENTO"]["fields"] = {
+}
+
+author_fields["EN_RED"] = {"alias": "network", "sub_section": "details"}
+author_fields["EN_RED"]["fields"] = {
+}
+
+
 author_fields["EN_ACTIVIDAD"] = {"alias": "activity"}
 author_fields["EN_ACTIVIDAD"]["fields"] = {
 }
@@ -22,9 +38,6 @@ author_fields["EN_ACT_DOCENCIA"] = {"alias": "teaching_activities"}
 author_fields["EN_ACT_DOCENCIA"]["fields"] = {
 }
 
-author_fields["EN_PROYECTO"] = {"alias": "project"}
-author_fields["EN_PROYECTO"]["fields"] = {
-}
 
 author_fields["EN_TIPO_NACIONALIDAD"] = {"alias": "nationality"}
 author_fields["EN_TIPO_NACIONALIDAD"]["fields"] = {
@@ -49,9 +62,6 @@ author_fields["EN_COMUNIDAD"] = {
     "alias": "community", "sub_section": "details"}
 author_fields["EN_COMUNIDAD"]["fields"] = {
 }
-author_fields["EN_PRODUCTO"] = {"alias": "product", "sub_section": "details"}
-author_fields["EN_PRODUCTO"]["fields"] = {
-}
 
 author_fields["EN_MUNICIPIO"] = {"alias": "city"}
 author_fields["EN_MUNICIPIO"]["fields"] = {
@@ -65,9 +75,6 @@ author_fields["EN_PAIS"] = {"alias": "country"}
 author_fields["EN_PAIS"]["fields"] = {
 }
 
-author_fields["EN_PROYECTO"] = {"alias": "project"}
-author_fields["EN_PROYECTO"]["fields"] = {
-}
 
 author_fields["EN_GRUPO_PESQUISA"] = {"alias": "group"}
 author_fields["EN_GRUPO_PESQUISA"]["fields"] = {
@@ -93,20 +100,10 @@ author_fields["EN_TRAYECTORIA_PROFESIONAL"] = {
 author_fields["EN_TRAYECTORIA_PROFESIONAL"]["fields"] = {
 }
 
-
-author_fields["EN_TIPO_FINANCIACION"] = {
-    "alias": "funding", "sub_section": "details"}
-author_fields["EN_TIPO_FINANCIACION"]["fields"] = {
+author_fields["EN_PATENTE"] = {"alias": "patent", "sub_section": "details"}
+author_fields["EN_PATENTE"]["fields"] = {
 }
 
-author_fields["EN_EVENTO"] = {"alias": "event", "sub_section": "details"}
-author_fields["EN_EVENTO"]["fields"] = {
-}
-
-
-author_fields["EN_RED"] = {"alias": "network"}
-author_fields["EN_RED"]["fields"] = {
-}
 
 author_fields["EN_PAIS"] = {"alias": "country"}
 author_fields["EN_PAIS"]["fields"] = {

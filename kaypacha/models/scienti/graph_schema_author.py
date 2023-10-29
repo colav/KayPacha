@@ -229,5 +229,24 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                      "DB": "__CVLAC__",
                      "TABLES": [{'EN_PRODUCTO': None}]},
 
+                    # project
+                    {"KEYS": ["COD_RH"],
+                     "DB": "__CVLAC__",
+                     "TABLES": [{'EN_PROYECTO': None}]},
+
+                    # event
+                    {"KEYS": ["COD_RH"],
+                     "DB": "__CVLAC__",
+                     "TABLES": [{'EN_EVENTO': None}]},
+
+                    # network
+                    {"KEYS": ["COD_RH"],
+                     "DB": "__CVLAC__",
+                     "TABLES": [{'EN_RED': None}]},
+                    # patente
+                    {"KEYS": ["COD_RH"],
+                     "DB": "__CVLAC__",
+                     "TABLES": [{'EN_PATENTE': None}]},
+
                 ]}
                 ]}
