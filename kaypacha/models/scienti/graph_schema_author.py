@@ -160,6 +160,18 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                                       ]}
                                   ]
                                   }]},
+                              {"KEYS": ["COD_RH", "COD_ACT_INVESTIGACION"],
+                               "DB": "__CVLAC__",
+                               "TABLES": [
+                                  {"RE_ACT_INV_LINEA_INV": [
+                                      {"KEYS": ["COD_RH", "COD_ACT_INVESTIGACION"],
+                                       "DB": "__CVLAC__",
+                                       "TABLES": [
+                                          {"EN_LINEA_INV": None}
+                                      ]}
+                                  ]}
+
+                              ]},
                           ]}]},
                          # teaching activities
                          {"KEYS": ["COD_RH", "COD_TRAY_PROFESIONAL"],
