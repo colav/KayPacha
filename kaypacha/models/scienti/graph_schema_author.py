@@ -2,6 +2,16 @@
 # 1. COD_NIVEL_FORMACION: no funciona tomandolo de la tabla EN_RECURSO_HUMANO
 # 2. tabla EN_RECURSO_HUMANO_GR no exsite apesar de que aparece en el diagrama y la doc
 # la relación entre grupo y autor sale por la tabla RE_GRUPO_RH usando el campo NRO_ID_CNPQ
+# 3. en EN_ACT_ADMINISTRACION el campo COD_INST no se usa, solo INSTITUCION OTRA
+# no implementar
+# {"KEYS": ["COD_INST"], # este campo no se usa en el aplicativo segun la doc
+#   "DB": "__CVLAC__",
+#   "TABLES": [
+#      # institution
+#      {'EN_INSTITUCION': None
+#       }]},
+
+
 graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                 "CHECKPOINT": {"DB": "__CVLAC__", "KEYS": ["COD_RH"]},
                 "SCHEMA_VERSION": 0.1,
@@ -57,7 +67,23 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                          # admin activities
                          {"KEYS": ["COD_RH", "COD_TRAY_PROFESIONAL"],
                            "DB": "__CVLAC__",
-                           "TABLES": [{'EN_ACT_ADMINISTRACION': None}]},
+                           "TABLES": [{'EN_ACT_ADMINISTRACION': [
+
+                               {"KEYS": ["COD_RH", "COD_INST_OTRO/COD_INST"],
+                                "DB": "__CVLAC__",
+                                "TABLES": [
+                                   # institution
+                                   {'EN_INSTITUCION_OTRA': None
+                                    }]},
+                               {"KEYS": ["COD_ACTIVIDAD"],
+                                "DB": "__CVLAC__",
+                                "TABLES": [
+                                   # actividad
+                                   {'EN_ACTIVIDAD': None
+                                    }]},
+
+
+                           ]}]},
                          # research activities
                          {"KEYS": ["COD_RH", "COD_TRAY_PROFESIONAL"],
                           "DB": "__CVLAC__",
@@ -68,9 +94,9 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                           "TABLES": [{'EN_ACT_DOCENCIA': None}]},
 
                      ]}]},
-                    # relación entre grupo and autor
-                    # los autores pueden estar en varios grupos
-                    # tabla EN_RECURSO_HUMANO_GR no exsite,
+                    # relación entre grupo and autor.
+                    # los autores pueden estar en varios grupos.
+                    # la tabla EN_RECURSO_HUMANO_GR no exsite,
                     # apesar de que aparece en el diagrama y la doc
                     {"KEYS": ["NRO_ID_CNPQ"],
                      "DB": "__GRUPLAC__",
