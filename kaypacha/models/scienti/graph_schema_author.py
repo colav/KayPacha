@@ -11,6 +11,7 @@
 #      {'EN_INSTITUCION': None
 #       }]},
 # 4. EN_ACTIVIDAD es recursiva a 3 niveles
+# 5. muchas instituciones no tienen pais, aparace SGL_PAIS = "1"
 
 graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                 "CHECKPOINT": {"DB": "__CVLAC__", "KEYS": ["COD_RH"]},
@@ -72,9 +73,23 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                                {"KEYS": ["COD_RH", "COD_INST_OTRO/COD_INST"],
                                 "DB": "__CVLAC__",
                                 "TABLES": [
-                                   # institution
-                                   {'EN_INSTITUCION_OTRA': None
-                                    }]},
+                                   # institution other
+                                   {'EN_INSTITUCION_OTRA': [
+                                       {"KEYS": ["COD_INSTITUCION/COD_INST"],
+                                        "DB": "__CVLAC__",
+                                        "TABLES": [
+                                           # institution
+                                           {"EN_INSTITUCION": [
+                                               # pais
+                                               {"KEYS": ["SGL_PAIS"],
+                                                "DB": "__CVLAC__",
+                                                "TABLES": [{'EN_PAIS': None}]},
+                                           ]}
+
+                                       ]}
+                                   ]
+                                   }]},
+
                                {"KEYS": ["COD_ACTIVIDAD"],
                                 "DB": "__CVLAC__",
                                 "TABLES": [
@@ -104,13 +119,25 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                          {"KEYS": ["COD_RH", "COD_TRAY_PROFESIONAL"],
                           "DB": "__CVLAC__",
                           "TABLES": [{'EN_ACT_INVESTIGACION': [
-
                               {"KEYS": ["COD_RH", "COD_INST_OTRO/COD_INST"],
                                "DB": "__CVLAC__",
                                "TABLES": [
-                                  # institution
-                                  {'EN_INSTITUCION_OTRA': None
-                                   }]},
+                                  # institution other
+                                  {'EN_INSTITUCION_OTRA': [
+                                      {"KEYS": ["COD_INSTITUCION/COD_INST"],
+                                       "DB": "__CVLAC__",
+                                       "TABLES": [
+                                          # institution
+                                          {"EN_INSTITUCION": [
+                                              # pais
+                                              {"KEYS": ["SGL_PAIS"],
+                                               "DB": "__CVLAC__",
+                                               "TABLES": [{'EN_PAIS': None}]},
+                                          ]}
+
+                                      ]}
+                                  ]
+                                  }]},
                               {"KEYS": ["COD_ACTIVIDAD"],
                                "DB": "__CVLAC__",
                                "TABLES": [
@@ -138,12 +165,27 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                          {"KEYS": ["COD_RH", "COD_TRAY_PROFESIONAL"],
                           "DB": "__CVLAC__",
                           "TABLES": [{'EN_ACT_DOCENCIA': [
+
                               {"KEYS": ["COD_RH", "COD_INST_OTRO/COD_INST"],
                                "DB": "__CVLAC__",
                                "TABLES": [
-                                  # institution
-                                  {'EN_INSTITUCION_OTRA': None
-                                   }]},
+                                  # institution other
+                                  {'EN_INSTITUCION_OTRA': [
+                                      {"KEYS": ["COD_INSTITUCION/COD_INST"],
+                                       "DB": "__CVLAC__",
+                                       "TABLES": [
+                                          # institution
+                                          {"EN_INSTITUCION": [
+                                              # pais
+                                              {"KEYS": ["SGL_PAIS"],
+                                               "DB": "__CVLAC__",
+                                               "TABLES": [{'EN_PAIS': None}]},
+                                          ]}
+
+                                      ]}
+                                  ]
+                                  }]},
+
                               {"KEYS": ["COD_ACTIVIDAD"],
                                "DB": "__CVLAC__",
                                "TABLES": [

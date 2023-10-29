@@ -107,5 +107,10 @@ author_fields["EN_EVENTO"]["fields"] = {
 author_fields["EN_RED"] = {"alias": "network"}
 author_fields["EN_RED"]["fields"] = {
 }
+
+author_fields["EN_PAIS"] = {"alias": "country"}
+author_fields["EN_PAIS"]["fields"] = {
+}
+
 # adding fields for every main entity
 graph_fields["EN_RECURSO_HUMANO"] = author_fields
