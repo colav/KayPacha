@@ -164,7 +164,7 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                                "DB": "__CVLAC__",
                                "TABLES": [
                                   {"RE_ACT_INV_LINEA_INV": [
-                                      {"KEYS": ["COD_RH", "COD_ACT_INVESTIGACION"],
+                                      {"KEYS": ["COD_RH", "COD_LINEA"],
                                        "DB": "__CVLAC__",
                                        "TABLES": [
                                           {"EN_LINEA_INV": None}
