@@ -1,12 +1,6 @@
 ##
 # author fields
 ##
-graph_fields = {}
-
-
-##
-# author fields
-##
 author_fields = {}
 
 author_fields["EN_PRODUCTO"] = {"alias": "product", "sub_section": "details"}
@@ -24,6 +18,10 @@ author_fields["EN_RED"] = {"alias": "network", "sub_section": "details"}
 author_fields["EN_RED"]["fields"] = {
 }
 
+
+author_fields["EN_LINEA_INV"] = {"alias": "research_topic"}
+author_fields["EN_LINEA_INV"]["fields"] = {
+}
 
 author_fields["EN_ACTIVIDAD"] = {"alias": "activity"}
 author_fields["EN_ACTIVIDAD"]["fields"] = {
@@ -108,6 +106,3 @@ author_fields["EN_PATENTE"]["fields"] = {
 author_fields["EN_PAIS"] = {"alias": "country"}
 author_fields["EN_PAIS"]["fields"] = {
 }
-
-# adding fields for every main entity
-graph_fields["EN_RECURSO_HUMANO"] = author_fields
