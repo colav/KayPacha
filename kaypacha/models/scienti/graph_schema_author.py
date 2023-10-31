@@ -92,6 +92,20 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                               ]}
                           ]
                           }]},
+                         # Re-Palabra clave
+                         {"KEYS": ["COD_RH", "COD_TRAY_ESCOLAR"],
+                          "DB": "__CVLAC__",
+                          "TABLES": [{'RE_TRAY_ESCOLAR_PALABRA_CLA': [
+                              # Palabra clave
+                              {"KEYS": ["COD_RH", "COD_PALABRA_CLAVE"],
+                               "DB": "__CVLAC__",
+                               "TABLES": [{'EN_PALABRA_CLAVE': None}
+                                          ]}
+                          ]}
+
+                         ]},
+
+
 
                      ]},
                     ]},
