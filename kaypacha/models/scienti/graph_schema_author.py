@@ -75,6 +75,24 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
 
                                   ]}]},
                              ]}]},
+                         # relation application sector
+                         {"KEYS": ["COD_RH", "COD_TRAY_ESCOLAR"],
+                          "DB": "__CVLAC__",
+                          "TABLES": [{'RE_TRAY_ESCOLAR_SECTOR_APL': [
+                              # sector aplicación nivel 2
+                              {"KEYS": ["COD_SECTOR_APLIC/COD_SECTOR_APLICACION"],
+                               "DB": "__CVLAC__",
+                               "TABLES": [{'EN_SECTOR_APLICACION': [
+                                   # sector aplicación nivel 1
+                                   {"KEYS": ["COD_SECT_APLIC_PADRE/COD_SECTOR_APLICACION"],
+                                    "DB": "__CVLAC__",
+                                    "TABLES": [{'EN_SECTOR_APLICACION': None}
+                                               ]}
+                               ]}
+                              ]}
+                          ]
+                          }]},
+
                      ]},
                     ]},
                     # profesinal trajectory

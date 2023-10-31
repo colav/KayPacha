@@ -1,7 +1,14 @@
+
 ##
 # author fields
 ##
 author_fields = {}
+
+author_fields["EN_SECTOR_APLICACION"] = {
+    "alias": "application_sector"}
+author_fields["EN_SECTOR_APLICACION"]["fields"] = {
+}
+
 
 author_fields["EN_PRODUCTO"] = {"alias": "product", "sub_section": "details"}
 author_fields["EN_PRODUCTO"]["fields"] = {
