@@ -21,10 +21,6 @@ graph_patent = {"MAIN_TABLE": "EN_PATENTE",
 
                                ]}]},
                           ]}]},
-                         # level of studies
-                         {"KEYS": ["COD_NIVEL_FORMACION"],
-                             "DB":"__CVLAC__",
-                          "TABLES":[{'EN_NIVEL_FORMACION': None}]},
                      ]},
                     ]},
 
