@@ -53,7 +53,7 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                                  ]}
                              ]}
                          ]},
-                         {"KEYS": ["COD_INST"],
+                         {"KEYS": ["COD_INSTITUCION"],
                           "DB": "__CVLAC__",
                           "TABLES": [
                              # institution
