@@ -22,10 +22,6 @@ graph_event = {"MAIN_TABLE": "EN_EVENTO",
 
                                    ]}]},
                               ]}]},
-                        # level of studies
-                        {"KEYS": ["COD_NIVEL_FORMACION"],
-                         "DB":"__CVLAC__",
-                              "TABLES":[{'EN_NIVEL_FORMACION': None}]},
                     ]},
                    ]},
 
