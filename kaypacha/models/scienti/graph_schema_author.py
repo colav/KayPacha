@@ -53,12 +53,28 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                                  ]}
                              ]}
                          ]},
-                         {"KEYS": ["COD_INSTITUCION"],
+                         # institution
+                         {"KEYS": ["COD_INSTITUCION/COD_INST"],
                           "DB": "__CVLAC__",
                           "TABLES": [
                              # institution
                              {'EN_INSTITUCION': None
-                              }]}
+                              }]},
+                         # municipio
+                         {"KEYS": ["COD_RH_MUNICIPIO", "COD_MUNICIPIO"],
+                             "DB": "__CVLAC__",
+                             "TABLES": [{'EN_MUNICIPIO': [
+                                 # departamento
+                                 {"KEYS": ["SGL_PAIS", "SGL_DEPARTAMENTO"],
+                                  "DB": "__CVLAC__",
+                                  "TABLES": [{'EN_DEPARTAMENTO': [
+                                   # pais
+                                   {"KEYS": ["SGL_PAIS"],
+                                    "DB": "__CVLAC__",
+                                    "TABLES": [{'EN_PAIS': None}]},
+
+                                  ]}]},
+                             ]}]},
                      ]},
                     ]},
                     # profesinal trajectory
@@ -98,12 +114,12 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                                        {"KEYS": ["COD_PADRE/COD_ACTIVIDAD"],
                                         "DB": "__CVLAC__",
                                         "TABLES": [
-                                           # activity level 1
+                                           # activity level 2
                                            {'EN_ACTIVIDAD': [
                                                {"KEYS": ["COD_PADRE/COD_ACTIVIDAD"],
                                                 "DB": "__CVLAC__",
                                                 "TABLES": [
-                                                   # activity level 1
+                                                   # activity level 3
                                                    {'EN_ACTIVIDAD': None}
                                                ]}
 
@@ -146,12 +162,12 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                                       {"KEYS": ["COD_PADRE/COD_ACTIVIDAD"],
                                        "DB": "__CVLAC__",
                                        "TABLES": [
-                                          # activity level 1
+                                          # activity level 2
                                           {'EN_ACTIVIDAD': [
                                               {"KEYS": ["COD_PADRE/COD_ACTIVIDAD"],
                                                "DB": "__CVLAC__",
                                                "TABLES": [
-                                                  # activity level 1
+                                                  # activity level 3
                                                   {'EN_ACTIVIDAD': None}
                                               ]}
 
@@ -206,12 +222,12 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                                       {"KEYS": ["COD_PADRE/COD_ACTIVIDAD"],
                                        "DB": "__CVLAC__",
                                        "TABLES": [
-                                          # activity level 1
+                                          # activity level 2
                                           {'EN_ACTIVIDAD': [
                                               {"KEYS": ["COD_PADRE/COD_ACTIVIDAD"],
                                                "DB": "__CVLAC__",
                                                "TABLES": [
-                                                  # activity level 1
+                                                  # activity level 3
                                                   {'EN_ACTIVIDAD': None}
                                               ]}
 
