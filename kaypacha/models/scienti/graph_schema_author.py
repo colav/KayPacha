@@ -394,7 +394,52 @@ graph_author = {"MAIN_TABLE": "EN_RECURSO_HUMANO",
                     # event
                     {"KEYS": ["COD_RH"],
                      "DB": "__CVLAC__",
-                     "TABLES": [{'EN_EVENTO': None}]},
+                     "TABLES": [{'EN_EVENTO': [
+
+                         # Re-Grupo
+                         {"KEYS": ["COD_RH", "COD_EVENTO"],
+                          "DB": "__GRUPLAC__",
+                          "TABLES": [{'RE_GRUPO_RH_EVENTO': [
+                              # Grupo
+                              {"KEYS": ["NRO_ID_GRUPO"],
+                               "DB": "__GRUPLAC__",
+                               "TABLES": [{"EN_GRUPO_PESQUISA": [
+                                   # re_institucion
+                                   {"KEYS": ["NRO_ID_GRUPO"],
+                                    "DB": "__GRUPLAC__",
+                                    "TABLES": [{'RE_GRUPO_INSTITUCION': [
+                                        # institucion
+                                        {"KEYS": ["COD_INST"],
+                                         "DB": "__CVLAC__",
+                                         "TABLES": [{'EN_INSTITUCION': None}
+                                                    ]}
+                                    ]}
+                                   ]},
+                                   # Area reconocimiento level 2 (tiene 3 niveles máximo) (es con COD_RH_AREA???)
+                                   {"KEYS": ['COD_RH_AREA/COD_RH', 'COD_AREA_CONHEC/COD_AREA_CONOCIMIENTO'],
+                                    "DB": "__CVLAC__",
+                                    "TABLES": [
+                                       {"EN_AREA_CONOCIMIENTO": [
+                                           # Area reconocimiento level 1
+                                           {"KEYS": ['COD_RH_PADRE/COD_RH', "COD_AREA_PADRE/COD_AREA_CONOCIMIENTO"],
+                                            "DB": "__CVLAC__",
+                                            "TABLES": [{'EN_AREA_CONOCIMIENTO': [
+                                                # Area reconocimiento level 0
+                                                {"KEYS": ['COD_RH_PADRE/COD_RH', "COD_AREA_PADRE/COD_AREA_CONOCIMIENTO"],
+                                                 "DB": "__CVLAC__",
+                                                 "TABLES": [{'EN_AREA_CONOCIMIENTO': None}]},
+                                            ]}
+                                           ]},
+
+                                       ]}
+                                   ]},
+                               ]},
+                              ]}
+                          ]}
+
+                         ]},
+
+                     ]}]},
 
                     # network
                     {"KEYS": ["COD_RH"],
