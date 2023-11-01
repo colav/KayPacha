@@ -4,6 +4,10 @@
 ##
 author_fields = {}
 
+author_fields["EN_GRUPO_PESQUISA"] = {"alias": "group"}
+author_fields["EN_GRUPO_PESQUISA"]["fields"] = {
+}
+
 author_fields["EN_PALABRA_CLAVE"] = {
     "alias": "keywords"}
 author_fields["EN_PALABRA_CLAVE"]["fields"] = {
@@ -13,6 +17,7 @@ author_fields["EN_SECTOR_APLICACION"] = {
     "alias": "application_sector"}
 author_fields["EN_SECTOR_APLICACION"]["fields"] = {
 }
+
 
 author_fields["EN_PRODUCTO"] = {"alias": "product", "sub_section": "details"}
 author_fields["EN_PRODUCTO"]["fields"] = {
