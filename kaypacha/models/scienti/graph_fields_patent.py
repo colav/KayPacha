@@ -122,3 +122,8 @@ patent_fields["EN_PROD_VEGETAL"] = {
     "alias": "plant_product", "sub_section": "details"}
 patent_fields["EN_PROD_VEGETAL"]["fields"] = {
 }
+
+
+patent_fields["EN_GRUPO_PESQUISA"] = {"alias": "group"}
+patent_fields["EN_GRUPO_PESQUISA"]["fields"] = {
+}
