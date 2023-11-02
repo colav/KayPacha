@@ -23,10 +23,6 @@ graph_project = {"MAIN_TABLE": "EN_PROYECTO",
 
                                        ]}]},
                                   ]}]},
-                              # level of studies
-                              {"KEYS": ["COD_NIVEL_FORMACION"],
-                                  "DB":"__CVLAC__",
-                                  "TABLES":[{'EN_NIVEL_FORMACION': None}]},
                           ]},
                      ]},
                      # Re-Recurso humano otro

@@ -21,10 +21,6 @@ graph_product = {"MAIN_TABLE": "EN_PRODUCTO",
 
                                        ]}]},
                                   ]}]},
-                                 # level of studies
-                                 {"KEYS": ["COD_NIVEL_FORMACION"],
-                                  "DB":"__CVLAC__",
-                                  "TABLES":[{'EN_NIVEL_FORMACION': None}]},
                                  ]},
                                 ]},
 
