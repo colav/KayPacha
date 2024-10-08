@@ -1,4 +1,3 @@
-
 ##
 # institution fields
 ##
@@ -119,7 +118,6 @@ institution_fields["EN_PATENTE"]["fields"] = {
 }
 
 
-
 institution_fields["RE_GRUPO_INSTITUCION"] = {"alias": "re_group_institution"}
 institution_fields["RE_GRUPO_INSTITUCION"]["fields"] = {
 }
@@ -131,3 +129,9 @@ institution_fields["EN_LINHA_PESQUISA_GR"]["fields"] = {
 institution_fields["RE_GRUPO_RH"] = {"alias": "re_group_author"}
 institution_fields["RE_GRUPO_RH"]["fields"] = {
 }
+
+institution_fields["EN_AVAL_INSTITUCION"] = {
+    "alias": "aval_institution",
+    "sub_section": "details",
+}
+institution_fields["EN_AVAL_INSTITUCION"]["fields"] = {}

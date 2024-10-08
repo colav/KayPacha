@@ -5,14 +5,7 @@
 # la relación entre grupo y autor sale por la tabla RE_GRUPO_RH usando el campo NRO_ID_CNPQ
 # 3. en EN_ACT_* el campo COD_INST no se usa, solo INSTITUCION OTRA
 # no implementar
-# {"KEYS": ["COD_INST"], # este campo no se usa en el aplicativo segun la doc
-#   "DB": "__CVLAC__",
-#   "TABLES": [
-#      # institution
-#      {'EN_INSTITUCION': None
-#       }]},
-# 4. EN_ACTIVIDAD es recursiva a 3 niveles
-# 5. muchas instituciones no tienen pais, aparace SGL_PAIS = "1"
+# 4. en EN_AVAL_INSTITUCION comentado por que son miles de registros y generan mucho ruido se me a details
 
 graph_institution = {
     "MAIN_TABLE": "EN_INSTITUCION",
@@ -39,6 +32,12 @@ graph_institution = {
                     "DB": "__CVLAC__",
                     "TABLES": [{"EN_MUNICIPIO": None}],
                 },
+                # productos avalados
+                {
+                    "KEYS": ["COD_INST/COD_INSTITUCION"],
+                    "DB": "__INSTITULAC__",
+                    "TABLES": [{"EN_AVAL_INSTITUCION": None}],
+                },
                 # grupos
                 {
                     "KEYS": ["COD_INST"],
@@ -57,37 +56,66 @@ graph_institution = {
                                                     "KEYS": ["NRO_ID_GRUPO"],
                                                     "DB": "__GRUPLAC__",
                                                     "TABLES": [
-                                                        {"EN_LINHA_PESQUISA_GR":None}
-                                                    ]
-
+                                                        {"EN_LINHA_PESQUISA_GR": None}
+                                                    ],
                                                 },
-                                                #programa academico
+                                                # productos
                                                 {
-                                                    "KEYS": ["NRO_ID_GRUPO","COD_PROGRAMA_SECUND/SEQ_PROGR_ACAD"],
+                                                    "KEYS": ["NRO_ID_GRUPO"],
                                                     "DB": "__GRUPLAC__",
                                                     "TABLES": [
-                                                        {"EN_PROGRAMA_ACADEMICO":None}
-                                                    ]
-
+                                                        {"EN_PRODUCTO_GR": None}
+                                                    ],
+                                                },
+                                                # evento
+                                                {
+                                                    "KEYS": ["NRO_ID_GRUPO"],
+                                                    "DB": "__GRUPLAC__",
+                                                    "TABLES": [
+                                                        {"RE_GRUPO_RH_EVENTO": None}
+                                                    ],
+                                                },
+                                                #  red
+                                                {
+                                                    "KEYS": ["NRO_ID_GRUPO"],
+                                                    "DB": "__GRUPLAC__",
+                                                    "TABLES": [
+                                                        {"RE_GRUPO_RH_RED": None}
+                                                    ],
+                                                },
+                                                # programa academico
+                                                {
+                                                    "KEYS": [
+                                                        "NRO_ID_GRUPO",
+                                                        "COD_PROGRAMA_SECUND/SEQ_PROGR_ACAD",
+                                                    ],
+                                                    "DB": "__GRUPLAC__",
+                                                    "TABLES": [
+                                                        {"EN_PROGRAMA_ACADEMICO": None}
+                                                    ],
                                                 },
                                                 # authores
                                                 {
                                                     "KEYS": ["NRO_ID_GRUPO"],
                                                     "DB": "__GRUPLAC__",
                                                     "TABLES": [
-                                                        {"RE_GRUPO_RH":[
-                                                            {
-                                                                "KEYS": ["NRO_ID_CNPQ"],
-                                                                "DB": "__CVLAC__",
-                                                                "TABLES": [
-                                                                    {"EN_RECURSO_HUMANO":None}
-                                                                ]
-                                                            }
-                                                        ]}
-                                                    ]
-
+                                                        {
+                                                            "RE_GRUPO_RH": [
+                                                                {
+                                                                    "KEYS": [
+                                                                        "NRO_ID_CNPQ"
+                                                                    ],
+                                                                    "DB": "__CVLAC__",
+                                                                    "TABLES": [
+                                                                        {
+                                                                            "EN_RECURSO_HUMANO": None
+                                                                        }
+                                                                    ],
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
                                                 },
-
                                                 # Area reconocimiento level 2 (tiene 3 niveles máximo) (es con COD_RH_AREA???)
                                                 {
                                                     "KEYS": [
@@ -163,15 +191,6 @@ graph_institution = {
                         }
                     ],
                 },
-                # #grupo
-                # {
-                #     " RE_GRUPO_INSTITUCION": [
-                #         {
-                #             "EN_GRUPO_PESQUISA": [
-                #             ]
-                #         }
-                #     ]
-                # }
             ]
         }
     ],
