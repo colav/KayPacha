@@ -27,6 +27,10 @@ product_fields["EN_RECURSO_HUMANO_OTRO"] = {"alias": "author_others"}
 product_fields["EN_RECURSO_HUMANO_OTRO"]["fields"] = {
 }
 
+product_fields["RE_PRODUCTO_RECURSO_HUM_OTRO"] = {"alias": "re_author_others"}
+product_fields["RE_PRODUCTO_RECURSO_HUM_OTRO"]["fields"] = {
+}
+
 product_fields["EN_MUNICIPIO"] = {"alias": "city"}
 product_fields["EN_MUNICIPIO"]["fields"] = {
 }
