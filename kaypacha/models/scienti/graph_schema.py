@@ -6,6 +6,7 @@ from .graph_schema_event import graph_event
 from .graph_schema_patent import graph_patent
 from .graph_schema_endorsement import graph_endorsement
 from .graph_schema_author import graph_author
+from .graph_schema_institution import graph_institution
 
 graph_schema = {"SCIENTI_MODEL": 2023}
 graph_schema["MODELS"] = {}
@@ -17,3 +18,4 @@ graph_schema["MODELS"]["event"] = graph_event
 graph_schema["MODELS"]["patent"] = graph_patent
 graph_schema["MODELS"]["endorsement"] = graph_endorsement
 graph_schema["MODELS"]["author"] = graph_author
+graph_schema["MODELS"]["institution"] = graph_institution
