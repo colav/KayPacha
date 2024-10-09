@@ -3,9 +3,8 @@
 #    pero todas las de institulac están incluidas den la tabla EN_INSTITUCION de Gruplac
 # 2. tabla EN_RECURSO_HUMANO_GR no exsite apesar de que aparece en el diagrama y la doc
 # la relación entre grupo y autor sale por la tabla RE_GRUPO_RH usando el campo NRO_ID_CNPQ
-# 3. en EN_ACT_* el campo COD_INST no se usa, solo INSTITUCION OTRA
-# no implementar
-# 4. en EN_AVAL_INSTITUCION comentado por que son miles de registros y generan mucho ruido se me a details
+# 3. en EN_AVAL_INSTITUCION comentado por que son miles de registros y generan mucho ruido se me a details
+# 4. productos avalados produce pymongo.errors.DocumentTooLarge: BSON document too large (27800309 bytes) - the connected server supports BSON document sizes up to 16793598 bytes
 
 graph_institution = {
     "MAIN_TABLE": "EN_INSTITUCION",
@@ -32,12 +31,12 @@ graph_institution = {
                     "DB": "__CVLAC__",
                     "TABLES": [{"EN_MUNICIPIO": None}],
                 },
-                # productos avalados
-                {
-                    "KEYS": ["COD_INST/COD_INSTITUCION"],
-                    "DB": "__INSTITULAC__",
-                    "TABLES": [{"EN_AVAL_INSTITUCION": None}],
-                },
+                # # productos avalados
+                # {
+                #     "KEYS": ["COD_INST/COD_INSTITUCION"],
+                #     "DB": "__INSTITULAC__",
+                #     "TABLES": [{"EN_AVAL_INSTITUCION": None}],
+                # },
                 # grupos
                 {
                     "KEYS": ["COD_INST"],
@@ -50,155 +49,7 @@ graph_institution = {
                                     "DB": "__GRUPLAC__",
                                     "TABLES": [
                                         {
-                                            "EN_GRUPO_PESQUISA": [
-                                                # lineas de investigación
-                                                {
-                                                    "KEYS": ["NRO_ID_GRUPO"],
-                                                    "DB": "__GRUPLAC__",
-                                                    "TABLES": [
-                                                        {"EN_LINHA_PESQUISA_GR": None}
-                                                    ],
-                                                },
-                                                # productos
-                                                {
-                                                    "KEYS": ["NRO_ID_GRUPO"],
-                                                    "DB": "__GRUPLAC__",
-                                                    "TABLES": [
-                                                        {"EN_PRODUCTO_GR": None}
-                                                    ],
-                                                },
-                                                # evento
-                                                {
-                                                    "KEYS": ["NRO_ID_GRUPO"],
-                                                    "DB": "__GRUPLAC__",
-                                                    "TABLES": [
-                                                        {"RE_GRUPO_RH_EVENTO": None}
-                                                    ],
-                                                },
-                                                #  red
-                                                {
-                                                    "KEYS": ["NRO_ID_GRUPO"],
-                                                    "DB": "__GRUPLAC__",
-                                                    "TABLES": [
-                                                        {"RE_GRUPO_RH_RED": None}
-                                                    ],
-                                                },
-                                                # programa academico
-                                                {
-                                                    "KEYS": [
-                                                        "NRO_ID_GRUPO",
-                                                        "COD_PROGRAMA_SECUND/SEQ_PROGR_ACAD",
-                                                    ],
-                                                    "DB": "__GRUPLAC__",
-                                                    "TABLES": [
-                                                        {
-                                                            "EN_PROGRAMA_ACADEMICO": [
-                                                                {
-                                                                    "KEYS": [
-                                                                        "NRO_ID_GRUPO",
-                                                                        "SEQ_PROGR_ACAD",
-                                                                    ],
-                                                                    "DB": "__GRUPLAC__",
-                                                                    "TABLES": [
-                                                                        {
-                                                                            "EN_CURSO_PROGRAMA": None
-                                                                        }
-                                                                    ],
-                                                                },
-                                                            ]
-                                                        }
-                                                    ],
-                                                },
-                                                # authores
-                                                {
-                                                    "KEYS": ["NRO_ID_GRUPO"],
-                                                    "DB": "__GRUPLAC__",
-                                                    "TABLES": [
-                                                        {
-                                                            "RE_GRUPO_RH": [
-                                                                {
-                                                                    "KEYS": [
-                                                                        "NRO_ID_CNPQ"
-                                                                    ],
-                                                                    "DB": "__CVLAC__",
-                                                                    "TABLES": [
-                                                                        {
-                                                                            "EN_RECURSO_HUMANO": None
-                                                                        }
-                                                                    ],
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                },
-                                                # Area reconocimiento level 2 (tiene 3 niveles máximo) (es con COD_RH_AREA???)
-                                                {
-                                                    "KEYS": [
-                                                        "COD_RH_AREA/COD_RH",
-                                                        "COD_AREA_CONHEC/COD_AREA_CONOCIMIENTO",
-                                                    ],
-                                                    "DB": "__CVLAC__",
-                                                    "TABLES": [
-                                                        {
-                                                            "EN_AREA_CONOCIMIENTO": [
-                                                                # Area reconocimiento level 1
-                                                                {
-                                                                    "KEYS": [
-                                                                        "COD_RH_PADRE/COD_RH",
-                                                                        "COD_AREA_PADRE/COD_AREA_CONOCIMIENTO",
-                                                                    ],
-                                                                    "DB": "__CVLAC__",
-                                                                    "TABLES": [
-                                                                        {
-                                                                            "EN_AREA_CONOCIMIENTO": [
-                                                                                # Area reconocimiento level 0
-                                                                                {
-                                                                                    "KEYS": [
-                                                                                        "COD_RH_PADRE/COD_RH",
-                                                                                        "COD_AREA_PADRE/COD_AREA_CONOCIMIENTO",
-                                                                                    ],
-                                                                                    "DB": "__CVLAC__",
-                                                                                    "TABLES": [
-                                                                                        {
-                                                                                            "EN_AREA_CONOCIMIENTO": None
-                                                                                        }
-                                                                                    ],
-                                                                                },
-                                                                            ]
-                                                                        }
-                                                                    ],
-                                                                },
-                                                            ]
-                                                        }
-                                                    ],
-                                                },
-                                                # Proyectos pasando por grupo
-                                                {
-                                                    "KEYS": [
-                                                        "NRO_ID_GRUPO",
-                                                        "SEQ_PRODUCTO/SEQ_PRODUCAO",
-                                                    ],
-                                                    "DB": "__GRUPLAC__",
-                                                    "TABLES": [
-                                                        {
-                                                            "RE_PROYECTO_PRODUCTO_GR": [
-                                                                {
-                                                                    "KEYS": [
-                                                                        "NRO_ID_GRUPO",
-                                                                        "SEQ_PROJETO",
-                                                                    ],
-                                                                    "DB": "__GRUPLAC__",
-                                                                    "TABLES": [
-                                                                        {
-                                                                            "EN_PROYECTO_GR": None
-                                                                        }
-                                                                    ],
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                },
-                                            ]
+                                            "EN_GRUPO_PESQUISA": None
                                         }
                                     ],
                                 },

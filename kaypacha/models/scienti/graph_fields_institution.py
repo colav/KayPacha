@@ -104,9 +104,6 @@ institution_fields["EN_NIVEL_FORMACION"]["fields"] = {
 institution_fields["EN_TRAYECTORIA_ESCOLAR"] = {"alias": "studies_trajectory"}
 institution_fields["EN_TRAYECTORIA_ESCOLAR"]["fields"] = {
 }
-institution_fields["EN_PROGRAMA_ACADEMICO"] = {"alias": "academic_program"}
-institution_fields["EN_PROGRAMA_ACADEMICO"]["fields"] = {
-}
 
 institution_fields["EN_TRAYECTORIA_PROFESIONAL"] = {
     "alias": "professional_trajectory"}
@@ -136,5 +133,14 @@ institution_fields["EN_AVAL_INSTITUCION"] = {
 }
 institution_fields["EN_AVAL_INSTITUCION"]["fields"] = {}
 
+institution_fields["EN_PROGRAMA_ACADEMICO"] = {"alias": "academic_program"}
+institution_fields["EN_PROGRAMA_ACADEMICO"]["fields"] = {}
+
 institution_fields["EN_CURSO_PROGRAMA"] = {"alias": "program_course"}
 institution_fields["EN_CURSO_PROGRAMA"]["fields"] = {}
+
+institution_fields["EN_PROGRAMA_COLCIENCIAS"] = {"alias": "minciencias_program"}
+institution_fields["EN_PROGRAMA_COLCIENCIAS"]["fields"] = {}
+
+institution_fields["EN_COLECCION_CIENTIFICA"] = {"alias": "scientific_collection"}
+institution_fields["EN_COLECCION_CIENTIFICA"]["fields"] = {}
