@@ -91,7 +91,22 @@ graph_institution = {
                                                     ],
                                                     "DB": "__GRUPLAC__",
                                                     "TABLES": [
-                                                        {"EN_PROGRAMA_ACADEMICO": None}
+                                                        {
+                                                            "EN_PROGRAMA_ACADEMICO": [
+                                                                {
+                                                                    "KEYS": [
+                                                                        "NRO_ID_GRUPO",
+                                                                        "SEQ_PROGR_ACAD",
+                                                                    ],
+                                                                    "DB": "__GRUPLAC__",
+                                                                    "TABLES": [
+                                                                        {
+                                                                            "EN_CURSO_PROGRAMA": None
+                                                                        }
+                                                                    ],
+                                                                },
+                                                            ]
+                                                        }
                                                     ],
                                                 },
                                                 # authores

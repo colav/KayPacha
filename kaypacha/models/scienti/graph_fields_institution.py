@@ -135,3 +135,6 @@ institution_fields["EN_AVAL_INSTITUCION"] = {
     "sub_section": "details",
 }
 institution_fields["EN_AVAL_INSTITUCION"]["fields"] = {}
+
+institution_fields["EN_CURSO_PROGRAMA"] = {"alias": "program_course"}
+institution_fields["EN_CURSO_PROGRAMA"]["fields"] = {}
