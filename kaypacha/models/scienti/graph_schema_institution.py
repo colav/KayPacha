@@ -5,7 +5,7 @@
 # la relación entre grupo y autor sale por la tabla RE_GRUPO_RH usando el campo NRO_ID_CNPQ
 # 3. en EN_AVAL_INSTITUCION comentado por que son miles de registros y generan mucho ruido se me a details
 # 4. productos avalados produce pymongo.errors.DocumentTooLarge: BSON document too large (27800309 bytes) - the connected server supports BSON document sizes up to 16793598 bytes
-
+# el aval del producto esta directamente de product en los campos COD_INST_AVALA TPO_AVAL_INST DTA_AVAL_INST
 graph_institution = {
     "MAIN_TABLE": "EN_INSTITUCION",
     "CHECKPOINT": {"DB": "__GRUPLAC__", "KEYS": ["COD_INST"]},
