@@ -27,16 +27,38 @@ graph_institution = {
                 },
                 # municipio
                 {
-                    "KEYS": ["COD_MUNICIPIO", "COD_RH_MUNICIPIO"],
+                    "KEYS": [
+                        "COD_RH_MUNICIPIO",
+                        "COD_MUNICIPIO",
+                    ],
                     "DB": "__CVLAC__",
-                    "TABLES": [{"EN_MUNICIPIO": None}],
+                    "TABLES": [
+                        {
+                            "EN_MUNICIPIO": [
+                                # departamento
+                                {
+                                    "KEYS": [
+                                        "SGL_PAIS",
+                                        "SGL_DEPARTAMENTO",
+                                    ],
+                                    "DB": "__CVLAC__",
+                                    "TABLES": [
+                                        {
+                                            "EN_DEPARTAMENTO": [
+                                                # pais
+                                                {
+                                                    "KEYS": ["SGL_PAIS"],
+                                                    "DB": "__CVLAC__",
+                                                    "TABLES": [{"EN_PAIS": None}],
+                                                },
+                                            ]
+                                        }
+                                    ],
+                                },
+                            ]
+                        }
+                    ],
                 },
-                # # productos avalados
-                # {
-                #     "KEYS": ["COD_INST/COD_INSTITUCION"],
-                #     "DB": "__INSTITULAC__",
-                #     "TABLES": [{"EN_AVAL_INSTITUCION": None}],
-                # },
                 # grupos
                 {
                     "KEYS": ["COD_INST"],
@@ -47,11 +69,7 @@ graph_institution = {
                                 {
                                     "KEYS": ["NRO_ID_GRUPO"],
                                     "DB": "__GRUPLAC__",
-                                    "TABLES": [
-                                        {
-                                            "EN_GRUPO_PESQUISA": None
-                                        }
-                                    ],
+                                    "TABLES": [{"EN_GRUPO_PESQUISA": None}],
                                 },
                             ]
                         }
