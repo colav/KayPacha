@@ -6,6 +6,8 @@ from .graph_fields_patent import patent_fields
 from .graph_fields_endorsement import endorsement_fields
 from .graph_fields_author import author_fields
 from .graph_fields_institution import institution_fields
+from .graph_fields_group import group_fields
+
 graph_fields = {}
 
 # adding fields for every main entity
@@ -17,3 +19,4 @@ graph_fields["EN_PATENTE"] = patent_fields
 graph_fields["EN_AVAL_INSTITUCION"] = endorsement_fields
 graph_fields["EN_RECURSO_HUMANO"] = author_fields
 graph_fields["EN_INSTITUCION"] = institution_fields
+graph_fields["EN_GRUPO_PESQUISA"] = institution_fields
