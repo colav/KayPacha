@@ -8,6 +8,7 @@ from .graph_schema_endorsement import graph_endorsement
 from .graph_schema_author import graph_author
 from .graph_schema_institution import graph_institution
 from .graph_schema_group import graph_group
+from .graph_schema_publisher import graph_publisher
 
 
 graph_schema = {"SCIENTI_MODEL": 2023}
@@ -22,3 +23,4 @@ graph_schema["MODELS"]["endorsement"] = graph_endorsement
 graph_schema["MODELS"]["author"] = graph_author
 graph_schema["MODELS"]["institution"] = graph_institution
 graph_schema["MODELS"]["group"] = graph_group
+graph_schema["MODELS"]["publisher"] = graph_publisher
