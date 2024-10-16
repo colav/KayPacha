@@ -74,11 +74,15 @@ kaypacha_scienti --mongo_dbname  scienti_univalle_2023  --max_threads 2 --cvlac_
 
 ### Entities models supported fo Scienti
 * product (EN_PRODCUTO)
-* netowrk (EN_RED)
+* network (EN_RED)
 * project (EN_PROYECTO)
 * event (EN_EVENTO)
 * patent (EN_PATENTE)
 * author (EN_RECURSO_HUMANO)
+* publisher (EN_EDITORIAL)
+* publisher_other (EN_EDITORIAL_OTRA)
+* institution (EN_INSTITUCION)
+* group (EN_GRUPO_PESQUISA)
 
 ### TODO
 * implement all the main tables for Scienti.
