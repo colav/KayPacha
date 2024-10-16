@@ -29,3 +29,6 @@ publisher_fields["EN_EDITORIAL"]["fields"] = {}
 
 publisher_fields["EN_REVISTA"] = {"alias": "journal"}
 publisher_fields["EN_REVISTA"]["fields"] = {}
+
+publisher_fields["EN_REVISTA_OTRA"] = {"alias": "journal_other"}
+publisher_fields["EN_REVISTA_OTRA"]["fields"] = {}

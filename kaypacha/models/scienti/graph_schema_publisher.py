@@ -25,6 +25,23 @@ graph_publisher = {
                         }
                     ],
                 },
+                # revista otra
+                {
+                    "KEYS": ["COD_EDITORIAL"],
+                    "DB": "__CVLAC__",
+                    "TABLES": [
+                        {
+                            "EN_REVISTA_OTRA": [
+                                # pais
+                                {
+                                    "KEYS": ["SGL_PAIS"],
+                                    "DB": "__CVLAC__",
+                                    "TABLES": [{"EN_PAIS": None}],
+                                }
+                            ]
+                        }
+                    ],
+                },
                 # municipio
                 {
                     "KEYS": [
