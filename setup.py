@@ -52,41 +52,32 @@ def main():
     setup(
         # Application name:
         name="KayPacha",
-
         # Version number (initial):
-        version=get_version('kaypacha/_version.py'),
-
+        version=get_version("kaypacha/_version.py"),
         # Application author details:
         author="Colav",
         author_email="colav@udea.edu.co",
-
         # Packages
-        packages=find_packages(exclude=['tests']),
-
+        packages=find_packages(exclude=["tests"]),
         # Include additional files into the package
         include_package_data=True,
-
         # Details
         url="https://github.com/colav/KayPacha",
-        scripts=['bin/kaypacha_scienti','bin/kaypacha_siiu','bin/kaypacha_blockdiag'],
+        scripts=["bin/kaypacha_scienti", "bin/kaypacha_siiu", "bin/kaypacha_blockdiag"],
         #
         license="BSD",
-
         description="SQL data extraction for Scienti and UdeA Oracle databases",
-
         long_description=open("README.md").read(),
-
         long_description_content_type="text/markdown",
-
         # Dependent packages (distributions)
         install_requires=[
-            'pandas',
-            'numpy',
-            'ukupacha',
-            'cx_Oracle',
-            'psutil',
-            'pymongo>=3.12.0',
-            'joblib>=1.1.0'
+            "pandas",
+            "numpy",
+            "ukupacha",
+            "cx_Oracle",
+            "psutil",
+            "pymongo>=3.12.0",
+            "joblib>=1.1.0",
         ],
     )
 
