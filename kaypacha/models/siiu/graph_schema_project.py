@@ -8,13 +8,13 @@ graph_project = {
 
                 {
                     "KEYS": ["CODIGO/PROYECTO"],
-                    "DB":"BUPP",
-                    "TABLES":[
+                    "DB": "BUPP",
+                    "TABLES": [
                         {
                             "SIIU_COMPROMISO_POR_PROYECTO": [
                                 {
                                     "KEYS": ["COMPROMISO/IDENTIFICADOR"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {"SIIU_COMPROMISO": None}
                                     ]
@@ -25,7 +25,7 @@ graph_project = {
                             "SIIU_ESTADO_PROYECTO": [
                                 {
                                     "KEYS": ["DOCUMENTO_SOPORTE/IDENTIFICADOR"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {"SIIU_DOCUMENTO_SOPORTE": None}
                                     ]
@@ -36,7 +36,7 @@ graph_project = {
                             "SIIU_AVAL_APROBACION": [
                                 {
                                     "KEYS": ["DOCUMENTO_SOPORTE/IDENTIFICADOR"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {"SIIU_DOCUMENTO_SOPORTE": None}
                                     ]
@@ -48,7 +48,7 @@ graph_project = {
                             "SIIU_EVALUACION_TECNICA": [
                                 {
                                     "KEYS": ["ETAPA_PROCESO/IDENTIFICADOR"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {"SIIU_ETAPA_PROCESO_SELECCION": None}
                                     ]
@@ -59,13 +59,13 @@ graph_project = {
                             "SIIU_EVALUACION_CIENTIFICA": [
                                 {
                                     "KEYS": ["EVALUADOR/IDENTIFICADOR"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {
                                             "SIIU_EVALUADOR_RECOMENDADO": [
                                                 {
                                                     "KEYS": ["EVALUADOR/IDENTIFICADOR"],
-                                                    "DB":"BUPP",
+                                                    "DB": "BUPP",
                                                     "TABLES": [
                                                         {"SIIU_EVALUADOR": None}
                                                     ]
@@ -80,22 +80,22 @@ graph_project = {
                             "SIIU_PARTICIPANTE_PROYECTO": [
                                 {
                                     "KEYS": ["PERSONA_NATURAL/IDENTIFICACION"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {"SIIU_PERSONA_NATURAL": None}
                                     ]
                                 },
                                 {
                                     "KEYS": ["ROL_PARTICIPANTE_PROYECTO/IDENTIFICADOR"],
-                                    "DB":"BUPP",
-                                    "TABLES":[
+                                    "DB": "BUPP",
+                                    "TABLES": [
                                         {"SIIU_ROL_PARTICIPANTE_PROYECTO": None}
                                     ]
                                 },
                                 {
                                     "KEYS": ["GRUPO/IDENTIFICADOR"],
-                                    "DB":"BUPP",
-                                    "TABLES":[
+                                    "DB": "BUPP",
+                                    "TABLES": [
                                         {"SIIU_GRUPO": None}
                                     ]
                                 }
@@ -106,7 +106,7 @@ graph_project = {
                             "SIIU_APORTANTE_PROYECTO": [
                                 {
                                     "KEYS": ["PERSONA_JURIDICA/NIT"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {"SIIU_PERSONA_JURIDICA": None}
                                     ]
@@ -114,14 +114,14 @@ graph_project = {
                                 },
                                 {
                                     "KEYS": ["GRUPO/IDENTIFICADOR"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {"SIIU_GRUPO": None}
                                     ]
                                 },
                                 {
                                     "KEYS": ["IDENTIFICADOR/APORTANTE"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {"SIIU_SEGUIMIENTO_APORTANTE": None},
                                         {"SIIU_SEGUIMIENTO_PRESUPUESTO": None}
@@ -129,13 +129,13 @@ graph_project = {
                                 },
                                 {
                                     "KEYS": ["IDENTIFICADOR/APORTANTE_PROYECTO"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {
                                             "SIIU_MODIFICACION_PRESUPUESTAL": [
                                                 {
                                                     "KEYS": ["IDENTIFICADOR/MODIFICACION_PRESUPUESTAL"],
-                                                    "DB":"BUPP",
+                                                    "DB": "BUPP",
                                                     "TABLES": [
                                                         {"SIIU_DETALLE_MODIF_PPTAL": None}
                                                     ]
@@ -150,7 +150,7 @@ graph_project = {
                             "SIIU_TEXTO_DESCRIPTIVO": [
                                 {
                                     "KEYS": ["TEXTO_SOLICITADO/IDENTIFICADOR"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {"SIIU_TEXTO_SOLICITADO": None}
                                     ]
@@ -162,7 +162,7 @@ graph_project = {
                             "SMAP_SOLICITUD_ADM": [
                                 {
                                     "KEYS": ["ID/ID_SOLICITUD_ADM"],
-                                    "DB":"BUPP",
+                                    "DB": "BUPP",
                                     "TABLES": [
                                         {"SMAP_SOL_ADICION_PRESUPUESTAL": None},
                                         {"SMAP_SOLICITUD_CAMBIO_RUBRO": None}
@@ -175,57 +175,66 @@ graph_project = {
                 },
                 {
                     "KEYS": ["CODIGO/CODIGO_PROYECTO"],
-                    "DB":"BUPP",
-                    "TABLES":[
+                    "DB": "BUPP",
+                    "TABLES": [
                         {"SIIU_ETAPA_PROYECTO": None}
                     ]
                 },
                 {
                     "KEYS": ["CLASE_PROYECTO/IDENTIFICADOR"],
-                    "DB":"BUPP",
-                    "TABLES":[
+                    "DB": "BUPP",
+                    "TABLES": [
                         {"SIIU_CLASE_PROYECTO": None}
                     ]
                 },
                 {
                     "KEYS": ["NIVEL_PROYECTO/IDENTIFICADOR"],
-                    "DB":"BUPP",
-                    "TABLES":[
+                    "DB": "BUPP",
+                    "TABLES": [
                         {"SIIU_NIVEL_PROYECTO": None}
                     ]
                 },
                 {
                     "KEYS": ["SUBNIVEL_PROYECTO"],
-                    "DB":"BUPP",
-                    "TABLES":[
+                    "DB": "BUPP",
+                    "TABLES": [
                         {"SIIU_SUBNIVEL_PROYECTO": None}
                     ]
                 },
                 {
+                    # este es el tipo del macroproyecto, no del proyecto(casi todos null)
                     "KEYS": ["TIPO_PROYECTO_MACRO/IDENTIFICADOR"],
-                    "DB":"BUPP",
-                    "TABLES":[
+                    "DB": "BUPP",
+                    "TABLES": [
                         {"SIIU_TIPO_PROYECTO": None}
                     ]
                 },
                 {
                     "KEYS": ["SUBTIPO_PROYECTO/IDENTIFICADOR"],
-                    "DB":"BUPP",
-                    "TABLES":[
-                        {"SIIU_SUBTIPO_PROYECTO": None}
+                    "DB": "BUPP",
+                    "TABLES": [
+                        {"SIIU_SUBTIPO_PROYECTO": [  # el tipo esta anidado en el subtipo (sacar el tipo del proyecto de acá)
+                            {
+                                "KEYS": ["TIPO_PROYECTO/IDENTIFICADOR"],
+                                "DB": "BUPP",
+                                "TABLES": [
+                                    {"SIIU_TIPO_PROYECTO": None}
+                                ]
+                            }
+                        ]}
                     ]
                 },
                 {
                     "KEYS": ["CONVOCATORIA/IDENTIFICADOR"],
-                    "DB":"BUPP",
-                    "TABLES":[
+                    "DB": "BUPP",
+                    "TABLES": [
                         {"SIIU_CONVOCATORIA": None}
                     ]
                 },
                 {
                     "KEYS": ["MODALIDAD_CONVOCATORIA/IDENTIFICADOR"],
-                    "DB":"BUPP",
-                    "TABLES":[
+                    "DB": "BUPP",
+                    "TABLES": [
                         {"SIIU_MODALIDAD_CONVOCATORIA": None}
                     ]
                 },
